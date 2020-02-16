@@ -94,7 +94,7 @@ class Login extends Component {
                             {logged_in}
                         </div>
 
-                        <div className="col-md-6 bg-white rounded-right">
+                        <div className="col-md-6 bg-white rounded-right border">
                             <img src="undraw.png" alt="locked"/>
                         </div>
                     </div>
