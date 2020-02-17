@@ -64,7 +64,7 @@ class Login extends Component {
         ) : null
 
         return (
-            <div>
+            <div className="origin">
                 <Navigation/>
 
                 <main>
@@ -94,10 +94,9 @@ class Login extends Component {
                     </div>
                 </main>
 
-                <footer>
-                    <Footer/>
-                </footer>
+                
             </div>
+            
         )
     }
 }

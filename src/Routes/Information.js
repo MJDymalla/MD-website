@@ -6,15 +6,15 @@ import '../index.css';
 // ABOUT US PAGE
 const AboutUs = () => {
     return (
-        <div>
+        <div className="origin">
             <Navigation />
             <div className="container">
 
-                <header className="pageHeaders center">
+                <header className="pageHeaders grey-text darken-4 text-accent-1 center">
                     About us
                 </header><hr/>
 
-                <h4 className="flow-text blue-text text-accent-1 align left">
+                <h4 className="flow-text grey-text darken-4 text-accent-1">
                     Who are we
                 </h4>
                 <blockquote className="about-text align left">
@@ -22,7 +22,7 @@ const AboutUs = () => {
                     Allowing individuals to not only recognize their unique skills or mindset but to leverage them to improve professional development and success.
                 </blockquote><br/>
 
-                <h4 className="flow-text blue-text text-accent-1">
+                <h4 className="flow-text grey-text darken-4 text-accent-1">
                     What's the mindset about
                 </h4>
                 <blockquote className="about-text align left">
@@ -32,7 +32,7 @@ const AboutUs = () => {
                     But by making an active effort to improve and embody this mindset, you position yourself to meet everyday challenges and experience major growth.
                  </blockquote><br />
 
-                <h4 className="flow-text blue-text text-accent-1">
+                <h4 className="flow-text grey-text darken-4 text-accent-1">
                     What's the profile about
                 </h4>
                 <blockquote className="about-text align left">
@@ -40,7 +40,7 @@ const AboutUs = () => {
                     It is aimed at not only discovering your current level of entrepreneurial thinking, but to also guide you in further developing and improving it.
                 </blockquote>
             </div>
-            <Footer />
+            
         </div>
     );
 };

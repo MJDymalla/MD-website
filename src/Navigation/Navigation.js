@@ -7,17 +7,18 @@ class Navigation extends Component {
     render()
     {
         var status = fakeAuth.isAuthenticated ? (
-            <span className="badge green">authenticated</span>
-        ): <span className="badge red">unauthenticated</span>
+            <span className="badge blue-grey darken-2 green-text">authenticated</span>
+        ) : <span className="badge  blue-grey darken-2 red-text ">unauthenticated</span>
 
         return (
             <div>
                 <nav>
-                    <div className="nav-wrapper bg-dark">
-                        <a className="brand-logo nav-head"> Mass Diplomacy Mindset Profile</a>
+                    <div className="nav-wrapper blue-grey darken-1 ">
+                        <a className="brand-logo nav-head blue-grey darken-1 "> Mass Diplomacy Mindset Profile</a>
+                        
 
                         <a href="#" data-target="mobile-demo" class="sidenav-trigger">menu</a>
-                        <ul className="right hide-on-med-and-down">
+                        <ul id="nav-mobile" className="right hide-on-med-and-down">
                             <li>
                                 <a>{status}</a>
                             </li>

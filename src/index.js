@@ -3,18 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { Link } from 'react-router-dom';
-
+import Footer from './Navigation/Footer';
 // LANDING PAGE (ROOT)
 const MainPage = () => {
   return (
-    <div>
+    <div className="origin">
+    
       <div className="container">
         <header className='head'>
-          <i>    Explore your entrepreneurial mindset with Mass Diplomacy   </i>
+          <i>     Long ago, the four nations lived together in harmony. Then everything changed when the Fire Nation attacked.   </i>
         </header>
 
-        <p><Link to='/login'><button type="button" class="btn btn-primary"><i class="fas fa-chevron-circle-right"></i></button></Link></p>
+        <p className="navbutton "><Link to='/login'><button type="button" className="btn btn-primary red darken-2"><i class="fas fa-chevron-circle-right"></i></button></Link></p>
       </div>
+      
+      
+       
+      
     </div>
     );
 };

@@ -7,7 +7,7 @@ import {Button} from 'react-materialize';
 // SURVEY ENTRY PAGE
 const surveyPage = () => {
     return (
-        <div>
+        <div className="origin">
             <Navigation/>
 
             <div className='container center'>
@@ -27,7 +27,7 @@ const surveyPage = () => {
                     <p><Link to="/questions"><Button className="waves-effect waves-light blue lighten-1 btn">BEGIN</Button></Link></p>
                 </div>
             </div>
-            <Footer />
+           
         </div>
     );
   };

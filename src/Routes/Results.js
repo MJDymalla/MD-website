@@ -5,7 +5,7 @@ import Footer from '../Navigation/Footer.js';
 class Results extends Component {
     render() {
         return (
-            <div>
+            <div className="origin">
                 <Navigation/>
                 <div className="container center">
                     <div>
@@ -31,7 +31,7 @@ class Results extends Component {
                         <p><i>If you choose not to have your results e-mailed to you, they will still be available to access via your account </i></p>
                     </div>
                 </div>
-                <Footer />
+                
             </div>
         );
     }

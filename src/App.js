@@ -15,7 +15,7 @@ import QuestionPage from './Routes/questions.js';
 import RegisterUser from './Routes/newUser.js';
 import Results from './Routes/Results.js';
 import AboutUs from './Routes/Information.js';
-
+import Footer from './Navigation/Footer';
 // AUTHENTICATION CHECK
 export const fakeAuth = {
     isAuthenticated: false,
@@ -45,7 +45,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 class App extends Component {
     render() {
         return (
-            <Router>
+            <Router className="router">
                 <Switch>
                     <Route exact path="/404" component={errorPage} />
                     <Route exact path="/" component={MainPage} />
@@ -57,7 +57,9 @@ class App extends Component {
                     <Route exact path="/newUser" component={RegisterUser} />
                     <Redirect to='/404' />
                 </Switch>
+                <Footer className="foot"/>
             </Router>
+           
         );
     }
 }

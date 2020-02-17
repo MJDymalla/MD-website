@@ -39,7 +39,7 @@ class QuestionPage extends Component {
         ) : null
 
         return (
-            <div>
+            <div className="origin">
                 <Navigation />
                 <div className="container">
                     <header className="pageHeaders center">
@@ -49,7 +49,7 @@ class QuestionPage extends Component {
                     {surveyRender}
                     {onSurveyCompletion}
                 </div>
-                <Footer />
+                
             </div>
         );
     };
