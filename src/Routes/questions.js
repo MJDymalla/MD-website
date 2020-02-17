@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import questionBank from "../questionBank.js";
-import QuestionBox from './QuestionBox.js';
-import PerfectScrollBar from 'react-perfect-scrollbar';
 import Navigation from '../Navigation/Navigation.js';
 import Footer from '../Navigation/Footer.js';
 import "survey-react/survey.css";
@@ -17,14 +14,14 @@ class QuestionPage extends Component {
         this.onCompleteComponent = this.onCompleteComponent.bind(this)
     }
 
-    onCompleteComponent = () => {
+    onCompleteComponent = (res) => {
         this.setState({
             isComplete: true
-        })
+        });
+        console.log(JSON.stringify(res.data, null, 3));
     }
 
     render() {
-
         var surveyRender = !this.state.isComplete ? (
             <Survey.Survey
                 json={json}
@@ -39,16 +36,15 @@ class QuestionPage extends Component {
                 Click below to view your results. <br /><br />
                 <Link to="/results"><button className="btn btn-success">RESULTS</button></Link>
             </div>
-        ) : null;
-
+        ) : null
 
         return (
             <div>
                 <Navigation />
-                <div className='container  rounded'>
-                    <header className="pageHeaders">
-                        <p class="headflow flow-text red-text text-accent-1">Questions</p>
-                    </header><hr />
+                <div className="container">
+                    <header className="pageHeaders center">
+                        Questions
+                    </header>
 
                     {surveyRender}
                     {onSurveyCompletion}

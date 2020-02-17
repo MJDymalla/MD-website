@@ -5,7 +5,6 @@ import {GoogleLogin, GoogleLogout} from 'react-google-login';
 import Navigation from '../Navigation/Navigation.js';
 import Footer from '../Navigation/Footer.js';
 import { Link } from 'react-router-dom';
-import { Spinner } from 'react-bootstrap';
 
 class Login extends Component {
     constructor(props) {
@@ -68,45 +67,36 @@ class Login extends Component {
             <div>
                 <Navigation/>
 
-             
-                <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-md-6  rounded-left">
-                            <header className="pageHeaders">
-                                <p class="headflow flow-text red-text text-accent-1">Login to proceed</p>
-                            </header><hr/>
-                            <div className="loginimg bg-white rounded-right">
-                                <img src="undraw.png" alt="locked" />
-                            </div>
-
-                            <p class="flow-text grey-text text-accent-1">
-                                During this development phase 
-                                we kindly ask you login using a valid Google account for secure authentication.
+                <main>
+                    <div className="container center">
+                        <header className="pageHeaders center">
+                            Login
+                        </header><hr />
+                        <p className="text-accent-1">
+                            During this development phase
+                            we kindly ask you login using a valid Google account for secure authentication.
                             </p><hr />
-                            <GoogleLogin
-                                clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
-                                buttonText="Login"
-                                onSuccess={this.login}
-                                onFailure={this.responseGoogle}
-                                cookiePolicy={'single_host_origin'}
-                            />
-                            <GoogleLogout
-                                clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
-                                buttonText="Logout"
-                                onLogoutSuccess={this.log_out}
-                            />
-                            <br/><br/>
-                            <Link to="/survey"><button className="btn waves-effect waves-light red lighten-1" disabled={this.state.buttonState}>Continue to survey</button></Link>
-                            {logged_in}
-                        </div>
-                    
-                        
+                        <GoogleLogin
+                            clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
+                            buttonText="Login"
+                            onSuccess={this.login}
+                            onFailure={this.responseGoogle}
+                            cookiePolicy={'single_host_origin'}
+                        />
+                        <GoogleLogout
+                            clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
+                            buttonText="Logout"
+                            onLogoutSuccess={this.log_out}
+                        />
+                        <br /><br />
+                        <Link to="/survey"><button className="btn waves-effect waves-light blue lighten-1" disabled={this.state.buttonState}>Continue to survey</button></Link>
+                        {logged_in}
                     </div>
-                </div>
-                <div>
+                </main>
 
-                </div>
-                <Footer />
+                <footer>
+                    <Footer/>
+                </footer>
             </div>
         )
     }

@@ -1,18 +1,18 @@
 /* MAIN BODY STYLE */
 body {
-  font-family: 'Merriweather Sans', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  align-content: space-evenly;
-  margin: 0;
-  font-size: 15px;
-  
-  color: white;
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 /* LANDING PAGE HEADER */
 .head {
-  font-family: 'Yeseva One', cursive;
+  font-family: 'Unica One', cursive;
   color: rgba(1, 1, 2, 0.616);
   font-size: 70px;
   padding-top: 20px;
@@ -27,72 +27,30 @@ code {
   monospace;
 }
 
-/* CONTAINERS */
-.container {
-  text-align: center;
-  margin-top: 20px;
-  padding-bottom: 50px;
-  padding-top: 1rem;
-}
 .surveycontainer{
   padding-top: 40px;
 }
 
-/* IMAGES */
-img {
-  opacity: 0.9;
-  overflow: hidden;
-  width: 400px;
-  height: 400px;
-}
-.nav2{
-  font-weight: 100;
-}
-/* FOOTER */
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 30px;
-  
-  
-}
-
 /* NAVBAR HEADER */
 .nav-head {
-  font-family: 'Yeseva One', cursive;
+  font-family: 'Unica One', cursive;
   font-size: 30px;
 }
 .block{
   color: black;
 }
-.about-text{
-  color: black;
-  padding: 10px;
-  text-align: left;
-  font-size: 1.5rem;
-  font-family: 'Merriweather', serif;
-}
-.flow-text{
-  text-align: left;
-  font-family: 'Yeseva One', cursive;
- 
-}
+
 .footerflow{
-text-align: center;
-font-family: 'Merriweather', serif;
-font-size: 1rem;
-padding: 2px;
-}
-.headflow{
   text-align: center;
+  font-family: 'Unica One', cursive;
+  font-size: 1rem;
+  padding: 2px;
 }
 
 /* PAGE (route) HEADERS */
 .pageHeaders {
   color: #4285f4;
-  background-color: none;
-  font-family: 'Merriweather', serif;
+  font-family: 'Unica One', cursive;
   font-size: 30px;
 }
 

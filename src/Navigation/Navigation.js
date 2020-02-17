@@ -1,45 +1,64 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import {fakeAuth} from '../App.js'
+import "materialize-css/dist/css/materialize.min.css";
 
 class Navigation extends Component {
     render()
     {
         var status = fakeAuth.isAuthenticated ? (
-            <span class="badge badge-success">authenticated</span>
-        ): <span class="badge badge-danger">unauthenticated</span>
+            <span className="badge green">authenticated</span>
+        ): <span className="badge red">unauthenticated</span>
 
         return (
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div class="container-fluid">
-                    <a class="navbar-brand nav-head">Mass Diplomacy </a>
-                    <a class="nav2 navbar-brand nav-head"> Mindset Profile</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+            <div>
+                <nav>
+                    <div className="nav-wrapper bg-dark">
+                        <a className="brand-logo nav-head"> Mass Diplomacy Mindset Profile</a>
 
-                    <div class="collapse navbar-collapse" id="mobile-nav">
-                        {status}
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <Link to="/" class="nav-link">HOME</Link>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger">menu</a>
+                        <ul className="right hide-on-med-and-down">
+                            <li>
+                                <a>{status}</a>
                             </li>
-                            <li class="nav-item">
-                                <Link to="/login" class="nav-link">USER</Link>
+                            <li>
+                                <Link to="/" className="nav-link">HOME</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link to="information" class="nav-link">ABOUT</Link>
+                            <li>
+                                <Link to="/login" className="nav-link">USER</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link to="/survey" class="nav-link">SURVEY</Link>
+                            <li>
+                                <Link to="information" className="nav-link">ABOUT</Link>
                             </li>
-                            <li class="nav-item">
-                                <Link to="/results" class="nav-link">RESULTS</Link>
+                            <li>
+                                <Link to="/survey" className="nav-link">SURVEY</Link>
+                            </li>
+                            <li>
+                                <Link to="/results" className="nav-link">RESULTS</Link>
                             </li>
                         </ul>
                     </div>
-                </div>
-            </nav>
+                </nav>
+
+                <ul className="sidenav" id="mobile-demo">
+                    <li>
+                        <Link to="/" className="nav-link">HOME</Link>
+                    </li>
+                    <li>
+                        <Link to="/login" className="nav-link">USER</Link>
+                    </li>
+                    <li>
+                        <Link to="information" className="nav-link">ABOUT</Link>
+                    </li>
+                    <li>
+                        <Link to="/survey" className="nav-link">SURVEY</Link>
+                    </li>
+                    <li>
+                        <Link to="/results" className="nav-link">RESULTS</Link>
+                    </li>
+                </ul>
+                <br/>
+            </div>
         )
     }
 }
