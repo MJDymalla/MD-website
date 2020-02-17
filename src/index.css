@@ -1,18 +1,18 @@
 /* MAIN BODY STYLE */
 body {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Merriweather Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   align-content: space-evenly;
   margin: 0;
   font-size: 15px;
-  text-shadow: none;
+  
   color: white;
 }
 
 /* LANDING PAGE HEADER */
 .head {
-  font-family: 'Reenie Beanie', cursive;
+  font-family: 'Yeseva One', cursive;
   color: rgba(1, 1, 2, 0.616);
   font-size: 70px;
   padding-top: 20px;
@@ -32,6 +32,10 @@ code {
   text-align: center;
   margin-top: 20px;
   padding-bottom: 50px;
+  padding-top: 1rem;
+}
+.surveycontainer{
+  padding-top: 40px;
 }
 
 /* IMAGES */
@@ -41,27 +45,55 @@ img {
   width: 400px;
   height: 400px;
 }
-
+.nav2{
+  font-weight: 100;
+}
 /* FOOTER */
 .footer {
   position: fixed;
   bottom: 0;
   width: 100%;
   height: 30px;
+  
+  
 }
 
 /* NAVBAR HEADER */
 .nav-head {
-  font-family: 'Reenie Beanie', cursive;
+  font-family: 'Yeseva One', cursive;
   font-size: 30px;
+}
+.block{
+  color: black;
+}
+.about-text{
+  color: black;
+  padding: 10px;
+  text-align: left;
+  font-size: 1.5rem;
+  font-family: 'Merriweather', serif;
+}
+.flow-text{
+  text-align: left;
+  font-family: 'Yeseva One', cursive;
+ 
+}
+.footerflow{
+text-align: center;
+font-family: 'Merriweather', serif;
+font-size: 1rem;
+padding: 2px;
+}
+.headflow{
+  text-align: center;
 }
 
 /* PAGE (route) HEADERS */
 .pageHeaders {
   color: #4285f4;
   background-color: none;
-  font-family: 'Reenie Beanie', cursive;
-  font-size: 50px;
+  font-family: 'Merriweather', serif;
+  font-size: 30px;
 }
 
 h4{

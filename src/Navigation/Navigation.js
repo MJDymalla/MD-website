@@ -12,7 +12,8 @@ class Navigation extends Component {
         return (
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand nav-head">Mass Diplomacy Mindset Profile</a>
+                    <a class="navbar-brand nav-head">Mass Diplomacy </a>
+                    <a class="nav2 navbar-brand nav-head"> Mindset Profile</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
                         <span class="navbar-toggler-icon"></span>
                     </button>

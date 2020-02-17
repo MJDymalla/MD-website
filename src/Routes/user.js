@@ -67,16 +67,22 @@ class Login extends Component {
         return (
             <div>
                 <Navigation/>
+
+             
                 <div className="container">
                     <div className="row justify-content-center">
-                        <div className="col-md-6 bg-dark rounded-left">
+                        <div className="col-md-6  rounded-left">
                             <header className="pageHeaders">
-                                User Login
+                                <p class="headflow flow-text red-text text-accent-1">Login to proceed</p>
                             </header><hr/>
-                            <p>
-                                During this development phase <br />
+                            <div className="loginimg bg-white rounded-right">
+                                <img src="undraw.png" alt="locked" />
+                            </div>
+
+                            <p class="flow-text grey-text text-accent-1">
+                                During this development phase 
                                 we kindly ask you login using a valid Google account for secure authentication.
-                            </p>
+                            </p><hr />
                             <GoogleLogin
                                 clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
                                 buttonText="Login"
@@ -90,14 +96,15 @@ class Login extends Component {
                                 onLogoutSuccess={this.log_out}
                             />
                             <br/><br/>
-                            <Link to="/survey"><button className="btn btn-success" disabled={this.state.buttonState}>Continue to survey</button></Link>
+                            <Link to="/survey"><button className="btn waves-effect waves-light red lighten-1" disabled={this.state.buttonState}>Continue to survey</button></Link>
                             {logged_in}
                         </div>
-
-                        <div className="col-md-6 bg-white rounded-right border">
-                            <img src="undraw.png" alt="locked"/>
-                        </div>
+                    
+                        
                     </div>
+                </div>
+                <div>
+
                 </div>
                 <Footer />
             </div>
