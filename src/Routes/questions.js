@@ -30,10 +30,10 @@ class QuestionPage extends Component {
         ) : null
 
         var onSurveyCompletion = this.state.isComplete ? (
-            <div className="container">
+            <div className="container center">
                 Thank you for completing the survey. <br />
                 Click below to view your results. <br /><br />
-                <Link to="/results"><button className="btn btn-success">RESULTS</button></Link>
+                <Link to="/results"><button className="btn waves-effect waves-light blue">RESULTS</button></Link>
             </div>
         ) : null
 

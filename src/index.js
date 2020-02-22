@@ -3,21 +3,26 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { Link } from 'react-router-dom';
+import Parallax from './LandingPage';
 
 // LANDING PAGE (ROOT)
 const MainPage = () => {
   return (
-    <div className="origin">
-
-      <div className="container">
-        <header className='head'>
-          <i>     Long ago, the four nations lived together in harmony. Then everything changed when the Fire Nation attacked.   </i>
-        </header>
-
-        <p className="navbutton "><Link to='/login'><button type="button" className="btn btn-primary red darken-2"><i class="fas fa-chevron-circle-right"></i></button></Link></p>
+    <>
+      <div className="landing">
+        <h2 className="flow-text head">
+          Explore your entrepreneurial mindset with Mass Diplomacy
+        </h2>
       </div>
-    </div>
+      <Parallax />
+      <div className="center">
+        <br/>
+        <Link to='/login'><i class="fas fa-chevron-circle-right"></i>CONTINUE</Link>
+      </div>
+    </>
     );
 };
+
+
 export default MainPage;
 ReactDOM.render(<App />, document.getElementById('root'));

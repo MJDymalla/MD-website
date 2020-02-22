@@ -21,7 +21,7 @@ class Navigation extends Component {
                         <a href="#" data-target="mobile-demo" class="sidenav-trigger">menu</a>
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
                             <li>
-                                <a>{status}</a>
+                            <Link to="/login" className="nav-link">{status}</Link>
                             </li>
                             <li>
                                 <Link to="/" className="nav-link">HOME</Link>
@@ -64,6 +64,7 @@ class Navigation extends Component {
         )
     }
 }
+
 Navigation.propTypes = {
     users: PropTypes.object
 };
