@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {fakeAuth} from '../App.js'
 import "materialize-css/dist/css/materialize.min.css";
@@ -7,15 +9,14 @@ class Navigation extends Component {
     render()
     {
         var status = fakeAuth.isAuthenticated ? (
-            <span className="badge blue-grey darken-2 green-text">authenticated</span>
-        ) : <span className="badge  blue-grey darken-2 red-text ">unauthenticated</span>
+            <span className="badge green darken-3 white-text">Logged in: {this.props.users.firstName} {this.props.users.lastName}</span>
+    ) : null
 
         return (
             <div>
                 <nav>
-                    <div className="nav-wrapper blue-grey darken-1 ">
-                        <a className="brand-logo nav-head blue-grey darken-1 "> Mass Diplomacy Mindset Profile</a>
-                        
+                    <div className="nav-wrapper blue-grey darken-3 ">
+                        <a className="brand-logo nav-head blue-grey darken-3 "> Mass Diplomacy Mindset Profile</a>
 
                         <a href="#" data-target="mobile-demo" class="sidenav-trigger">menu</a>
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
@@ -63,4 +64,12 @@ class Navigation extends Component {
         )
     }
 }
-export default Navigation;
+Navigation.propTypes = {
+    users: PropTypes.object
+};
+
+const mapStateToProps = state => ({
+    users: state.currentuser.user
+});
+
+export default connect(mapStateToProps, {})(Navigation);

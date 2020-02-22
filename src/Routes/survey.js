@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation.js';
-import Footer from '../Navigation/Footer.js';
 import {Button} from 'react-materialize';
 
 // SURVEY ENTRY PAGE
@@ -27,7 +26,7 @@ const surveyPage = () => {
                     <p><Link to="/questions"><Button className="waves-effect waves-light blue lighten-1 btn">BEGIN</Button></Link></p>
                 </div>
             </div>
-           
+
         </div>
     );
   };

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation.js';
-import Footer from '../Navigation/Footer.js';
 import "survey-react/survey.css";
 import * as Survey from "survey-react";
 import 'react-perfect-scrollbar/dist/css/styles.css';
@@ -49,7 +48,7 @@ class QuestionPage extends Component {
                     {surveyRender}
                     {onSurveyCompletion}
                 </div>
-                
+
             </div>
         );
     };

@@ -1,6 +1,5 @@
 import React from 'react';
 import Navigation from '../Navigation/Navigation.js';
-import Footer from '../Navigation/Footer.js';
 import '../index.css';
 
 // ABOUT US PAGE
@@ -40,7 +39,7 @@ const AboutUs = () => {
                     It is aimed at not only discovering your current level of entrepreneurial thinking, but to also guide you in further developing and improving it.
                 </blockquote>
             </div>
-            
+
         </div>
     );
 };

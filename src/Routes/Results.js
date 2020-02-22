@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Navigation from '../Navigation/Navigation.js';
-import Footer from '../Navigation/Footer.js';
 
 class Results extends Component {
     render() {
@@ -31,7 +30,7 @@ class Results extends Component {
                         <p><i>If you choose not to have your results e-mailed to you, they will still be available to access via your account </i></p>
                     </div>
                 </div>
-                
+
             </div>
         );
     }

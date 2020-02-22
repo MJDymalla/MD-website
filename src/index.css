@@ -4,27 +4,20 @@
 .origin{
   min-height: 95vh;
   height:100%;
-  
+
 }
-
-
 
 html {
     flex: 1 0 auto;
 }
 
-
 /* LANDING PAGE HEADER */
 .head {
   font-family: 'Ultra', serif;
-   color: #F44336;
+  color: #F44336;
   font-size: 50px;
   padding-top: 200px;
-  
-  
-
 }
-
 
 code {
   font-family: 'Gentium Basic', serif;
@@ -34,20 +27,19 @@ code {
   padding-top: 40px;
 }
 
+img {
+  width: 200px;
+}
 
 /* NAVBAR HEADER */
 .nav-head {
   font-family: 'Gentium Basic', serif;
   font-size: 30px;
- 
-  
 }
 .block{
   color: black;
 }
-.foot{
-  position:relative;
-}
+
 .navbutton{
   text-align: center;
 }
@@ -55,12 +47,11 @@ code {
   text-align: center;
   font-family: 'Gentium Basic', serif;
   font-size: 1rem;
-  
 }
 
 /* PAGE (route) HEADERS */
 .pageHeaders {
-  
+
  font-family: 'Catamaran', sans-serif;
   font-size: 30px;
   opacity: 0.7;

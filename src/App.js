@@ -5,6 +5,8 @@ import {
     Switch,
     Redirect
 } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store.js';
 
 // PAGES
 import MainPage from './index.js';
@@ -12,10 +14,10 @@ import Login from './Routes/user.js';
 import errorPage from './Routes/ErrorPage.js';
 import surveyPage from './Routes/survey.js';
 import QuestionPage from './Routes/questions.js';
-import RegisterUser from './Routes/newUser.js';
 import Results from './Routes/Results.js';
 import AboutUs from './Routes/Information.js';
 import Footer from './Navigation/Footer';
+
 // AUTHENTICATION CHECK
 export const fakeAuth = {
     isAuthenticated: false,
@@ -45,21 +47,21 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 class App extends Component {
     render() {
         return (
-            <Router className="router">
-                <Switch>
-                    <Route exact path="/404" component={errorPage} />
-                    <Route exact path="/" component={MainPage} />
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/information" component={AboutUs} />
-                    <Route path="/survey" component={surveyPage} />
-                    <Route path="/questions" component={QuestionPage} />
-                    <Route path="/results" component={Results} />
-                    <Route exact path="/newUser" component={RegisterUser} />
-                    <Redirect to='/404' />
-                </Switch>
-                <Footer className="foot"/>
-            </Router>
-           
+            <Provider store={store}>
+                <Router className="router">
+                    <Switch>
+                        <Route exact path="/404" component={errorPage} />
+                        <Route exact path="/" component={MainPage} />
+                        <Route exact path="/login" component={Login} />
+                        <Route exact path="/information" component={AboutUs} />
+                        <Route path="/survey" component={surveyPage} />
+                        <Route path="/questions" component={QuestionPage} />
+                        <Route path="/results" component={Results} />
+                        <Redirect to='/404' />
+                    </Switch>
+                    <Footer className="foot"/>
+                </Router>
+            </Provider>
         );
     }
 }
