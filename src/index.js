@@ -17,7 +17,7 @@ const MainPage = () => {
       <Parallax />
       <div className="center">
         <br/>
-        <Link to='/login'><i class="fas fa-chevron-circle-right"></i>CONTINUE</Link>
+        <Link to='/login'>CONTINUE</Link>
       </div>
     </>
     );

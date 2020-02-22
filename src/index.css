@@ -1,10 +1,7 @@
-/* MAIN BODY STYLE */
-
 
 .origin{
-  min-height: 95vh;
+  min-height: 85vh;
   height:100%;
-
 }
 
 html {
@@ -13,7 +10,7 @@ html {
 
 /* LANDING PAGE HEADER */
 .head {
-  color: rgb(9, 11, 20);
+  color: rgb(29, 41, 94);
   font-size: 50px;
   font-weight: 300;
 }

@@ -4,8 +4,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {fakeAuth} from '../App.js'
 import "materialize-css/dist/css/materialize.min.css";
+import M from 'materialize-css';
 
 class Navigation extends Component {
+    componentDidMount() {
+        M.AutoInit();
+    }
     render()
     {
         var status = fakeAuth.isAuthenticated ? (

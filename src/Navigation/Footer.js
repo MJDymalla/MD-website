@@ -7,11 +7,16 @@ class Footer extends Component {
         return (
             <footer className="footer page-footer blue-grey darken-3">
                 <div className="container">
-                    <div className="row">
+                    <div className="row center">
                         <p>&copy; KIMJ Development</p>
                     </div>
                 </div>
-
+                <div class="footer-copyright">
+                    <div class="container">
+                        © 2014 Copyright Text
+                        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                    </div>
+                </div>
             </footer>
         )
     }

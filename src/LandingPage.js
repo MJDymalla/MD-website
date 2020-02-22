@@ -4,7 +4,6 @@ import "materialize-css/dist/css/materialize.min.css";
 import Image1 from "./Images/bg1.jpg";
 import Image2 from "./Images/bg2.jpg";
 
-
 class LandingPage extends Component {
     componentDidMount() {
         M.Parallax.init(this.Parallax1);
@@ -24,12 +23,11 @@ class LandingPage extends Component {
                         <img src={Image2} />
                     </div>
                 </div>
-                <div className="section">
+                <div className="section dark">
                     <div className="row container">
 
-                        <p className="grey-text text-darken-3 lighten-3">
-                            Yo, I hit my shmoney dance when I caught the lick
-                            I hit my shmoney dance when I caught ya chick
+                        <p className="navy-text">
+                            <i>“Obsessed is a word used often by the lazy, in order to describe the dedicated.”</i> – Tai Lopez
                         </p>
                     </div>
                 </div>

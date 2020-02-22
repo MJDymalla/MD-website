@@ -59,7 +59,7 @@ class App extends Component {
                         <Route path="/results" component={Results} />
                         <Redirect to='/404' />
                     </Switch>
-                    <Footer className="foot"/>
+                    <Footer/>
                 </Router>
             </Provider>
         );

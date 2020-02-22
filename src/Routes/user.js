@@ -56,8 +56,6 @@ class Login extends Component {
                         we kindly ask that you login using a valid Google account for secure authentication.
                     </p>
 
-
-
                     <GoogleLogin
                         clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
                         buttonText="Login"
