@@ -27,12 +27,10 @@ class Navigation extends Component {
                 </a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
                   <li>
-                    <NavLink to="/login" className="nav-link">
-                      {status}
-                    </NavLink>
+                    {status}
                   </li>
                   <li>
-                    
+
                   </li>
                   <li>
                     <NavLink
@@ -76,7 +74,7 @@ class Navigation extends Component {
 
             <ul className="sidenav" id="mobile-demo">
               <li>
-                
+
               </li>
               <li>
                 <NavLink to="/login" className="nav-link">
@@ -111,7 +109,7 @@ class Navigation extends Component {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/login" className="nav-link">
+                <NavLink to="#" className="nav-link">
                   {status}
                 </NavLink>
               </li>

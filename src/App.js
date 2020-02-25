@@ -52,10 +52,6 @@ database.ref().once('value').then((snapshot) => {
     console.log(val);
 });
 
-
-
-
-
 class App extends Component {
     render() {
         return (

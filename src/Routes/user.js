@@ -10,6 +10,7 @@ import M from 'materialize-css';
 import {startLogin} from '../Actions/auth';
 import database from "../firebase/firebase";
 import { v4 as uuidv4 } from "uuid";
+import locked from '../Images/login.png';
 class Login extends Component {
     // SET AUTHENTICATED TO TRUE - trigger redux action (save users name)
     login = (res) => {
@@ -23,14 +24,6 @@ class Login extends Component {
         };
         this.props.logUser(currentUser);
         M.toast({html:"Success! Welcome " + this.props.users.firstName}, 4000)
-        console.log(res.profileObj);
-        database.ref(`users/${currentUser.id}/info`).set({
-          
-          firstName: currentUser.firstName,
-          lastName: currentUser.lastName,
-          email: currentUser.email,
-          img: currentUser.img
-        });
     }
 
     // SET AUTHENTICATED TO FALSE - trigger redux action (set user to null)
@@ -69,34 +62,42 @@ class Login extends Component {
                 <Navigation />
 
                 <div className="container center ">
-                <i className="medium material-icons icon-color">account_circle</i>
+                    <i className="medium material-icons icon-color">account_circle</i>
                     <header className="pageHeaders center">
                         Login
                     </header><hr />
 
-                    <p className="text-accent-1">
-                        During this development phase
-                        we kindly ask that you login using a valid Google account for secure authentication.
-                    </p>
+                    <div className="row">
+                        <div className="col s6">
+                            <p className="text-accent-1">
+                                During this development phase
+                                we kindly ask that you provide a valid Google account for secure authentication.
+                            </p>
 
-                    <GoogleLogin
-                        clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
-                        buttonText="Login"
-                        onSuccess={this.login}
-                        onFailure={this.responseGoogle}
-                        cookiePolicy={'single_host_origin'}
-                    />
-                    <GoogleLogout
-                        clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
-                        buttonText="Logout"
-                        onLogoutSuccess={this.log_out}
-                    />
-                    <br/><br/>
-                    {logged_in}<hr />
+                            <p>Don't have an account? <br/> <a href='https://accounts.google.com/sigNup' target='_blank'>Create one here.</a></p><br/>
+
+                            <GoogleLogin
+                                clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
+                                buttonText="Login"
+                                onSuccess={this.login}
+                                onFailure={this.responseGoogle}
+                                cookiePolicy={'single_host_origin'}
+                            />
+                            <GoogleLogout
+                                clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
+                                buttonText="Logout"
+                                onLogoutSuccess={this.log_out}
+                            />
+                            <br/><br/>
+                            {logged_in}
+                        </div>
+
+                        <div className="col s6">
+                            <img className="login_img" src={locked} alt=""/>
+                        </div>
+
+                    </div><hr />
                     <Link to="/survey"><button className="btn waves-effect waves-light blue lighten-1" disabled={this.buttonState()}>Continue to survey</button></Link>
-
-                    FIREBASE AUTH TEST
-                    <button> login ( does nothing) </button> 
                 </div>
             </div>
         )
@@ -111,9 +112,5 @@ Login.propTypes = {
 const mapStateToProps = state => ({
     users: state.currentuser.user
 });
-
-// const mapDispatchToProps = (dispatch) => ({
-//     startLogin: () => dispatch(startLogin)
-// });
 
 export default connect(mapStateToProps, {logUser})(Login);

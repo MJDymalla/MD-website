@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import Navigation from '../Navigation/Navigation.js';
 import Undraw1 from "../Images/undraw_message_sent_1030.png";
 import Undraw2 from '../Images/undraw_progress_data_4ebj.png';
-
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 class Results extends Component {
     render() {
         return (
-            
+
           <div className="origin">
             <Navigation />
             <div className="container center">
@@ -17,6 +18,9 @@ class Results extends Component {
                 <h1 className="left-aligned flow-text grey-text darken-4 text-accent-1">
                   Introduction
                 </h1>
+
+                <p>{this.props.users.firstName} is short, send ligma to {this.props.users.email}</p>
+
                 <p class="flow-text">
                   High Self-Confidence – Architects trust their rationalism
                   above all else, so when they decide something, they have no
@@ -86,7 +90,7 @@ class Results extends Component {
 
               <div className="row visualRow">
                 <div className="col s6">
-                
+
                   <img
                     className="responsive-img resultimg"
                     src={Undraw1}
@@ -109,4 +113,12 @@ class Results extends Component {
     }
 }
 
-export default Results;
+Results.propTypes = {
+  users: PropTypes.object
+};
+
+const mapStateToProps = state => ({
+  users: state.currentuser.user
+});
+
+export default connect(mapStateToProps, {})(Results);

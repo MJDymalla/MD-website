@@ -11,7 +11,7 @@ const AboutUs = () => {
                 <div className="center">
                     <i className="medium material-icons icon-color">info</i>
                     <header className="pageHeaders darken-4 text-accent-1 center">
-                        About us
+                        About
                     </header><hr/>
                 </div>
 
