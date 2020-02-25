@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 import {fakeAuth} from '../App.js'
 import "materialize-css/dist/css/materialize.min.css";
 import M from 'materialize-css';
@@ -17,58 +17,108 @@ class Navigation extends Component {
     ) : <i className="medium material-icons icon-color">lock</i>
 
         return (
-            <div>
-                <nav>
-                    <div className="nav-wrapper ">
-                        <a className="brand-logo nav-head "> MASS DIPLOMACY </a>
+          <div>
+            <nav>
+              <div className="nav-wrapper ">
+                <a className=" nav-head "> MASS DIPLOMACY </a>
 
-                        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i className="medium material-icons icon-color">menu</i></a>
-                        <ul id="nav-mobile" className="right hide-on-med-and-down">
-                            <li>
-                                <Link to="/login" className="nav-link">{status}</Link>
-                            </li>
-                            <li>
-                                <Link to="/" className="nav-link">HOME</Link>
-                            </li>
-                            <li>
-                                <Link to="/login" className="nav-link">USER</Link>
-                            </li>
-                            <li>
-                                <Link to="information" className="nav-link">ABOUT</Link>
-                            </li>
-                            <li>
-                                <Link to="/survey" className="nav-link">SURVEY</Link>
-                            </li>
-                            <li>
-                                <Link to="/results" className="nav-link">RESULTS</Link>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-
-                <ul className="sidenav" id="mobile-demo">
-                    <li>
-                        <Link to="/" className="nav-link">HOME</Link>
-                    </li>
-                    <li>
-                        <Link to="/login" className="nav-link">USER</Link>
-                    </li>
-                    <li>
-                        <Link to="information" className="nav-link">ABOUT</Link>
-                    </li>
-                    <li>
-                        <Link to="/survey" className="nav-link">SURVEY</Link>
-                    </li>
-                    <li>
-                        <Link to="/results" className="nav-link">RESULTS</Link>
-                    </li>
-                    <li>
-                        <Link to="/login" className="nav-link">{status}</Link>
-                    </li>
+                <a href="#" data-target="mobile-demo" className="sidenav-trigger">
+                  <i className="medium material-icons icon-color">menu</i>
+                </a>
+                <ul id="nav-mobile" className="right hide-on-med-and-down">
+                  <li>
+                    <NavLink to="/login" className="nav-link">
+                      {status}
+                    </NavLink>
+                  </li>
+                  <li>
+                    
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/login"
+                      activeClassName="active"
+                      className="nav-link"
+                    >
+                      USER
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="information"
+                      activeClassName="active"
+                      className="nav-link"
+                    >
+                      ABOUT
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/survey"
+                      activeClassName="active"
+                      className="nav-link"
+                    >
+                      SURVEY
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink
+                      to="/results"
+                      activeClassName="active"
+                      className="nav-link"
+                    >
+                      RESULTS
+                    </NavLink>
+                  </li>
                 </ul>
-                <br/>
-            </div>
-        )
+              </div>
+            </nav>
+
+            <ul className="sidenav" id="mobile-demo">
+              <li>
+                
+              </li>
+              <li>
+                <NavLink to="/login" className="nav-link">
+                  USER
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="information"
+                  activeClassName="active"
+                  className="nav-link"
+                >
+                  ABOUT
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/survey"
+                  activeClassName="active"
+                  className="nav-link"
+                >
+                  SURVEY
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/results"
+                  activeClassName="active"
+                  className="nav-link"
+                >
+                  RESULTS
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/login" className="nav-link">
+                  {status}
+                </NavLink>
+              </li>
+            </ul>
+            <br />
+          </div>
+        );
     }
 }
 

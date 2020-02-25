@@ -5,6 +5,7 @@
   "dependencies": {
     "bootstrap": "^4.4.1",
     "bootswatch": "^4.4.1",
+    "firebase": "^7.9.1",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^16.9.0",
     "react-alert": "^5.5.0",

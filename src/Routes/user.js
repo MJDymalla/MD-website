@@ -7,6 +7,7 @@ import {fakeAuth} from '../App.js'
 import {GoogleLogin, GoogleLogout} from 'react-google-login';
 import Navigation from '../Navigation/Navigation.js';
 import M from 'materialize-css';
+import {startLogin} from '../Actions/auth';
 
 class Login extends Component {
     // SET AUTHENTICATED TO TRUE - trigger redux action (save users name)
@@ -57,7 +58,7 @@ class Login extends Component {
             <div className="origin">
                 <Navigation />
 
-                <div className="container center">
+                <div className="container center ">
                 <i className="medium material-icons icon-color">account_circle</i>
                     <header className="pageHeaders center">
                         Login
@@ -83,6 +84,9 @@ class Login extends Component {
                     <br/><br/>
                     {logged_in}<hr />
                     <Link to="/survey"><button className="btn waves-effect waves-light blue lighten-1" disabled={this.buttonState()}>Continue to survey</button></Link>
+
+                    FIREBASE AUTH TEST
+                    <button> login ( does nothing) </button> 
                 </div>
             </div>
         )
@@ -96,6 +100,10 @@ Login.propTypes = {
 
 const mapStateToProps = state => ({
     users: state.currentuser.user
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    startLogin: () => dispatch(startLogin)
 });
 
 export default connect(mapStateToProps, { logUser })(Login);

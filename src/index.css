@@ -31,6 +31,7 @@ h1, h2, h3, h4 {
 
 .about-text {
   border-left-color: #C5C6C7;
+  padding-bottom: 1.5rem;
 }
 
 i.icon-color {
@@ -44,18 +45,52 @@ img {
 
 .container {
   font-family: 'Chivo';
+  
 }
 
 .parallax-container {
   height: 600px;
 }
+.active{
+  opacity:0.5;
+  background: #666;
+}
+.resultimg{
+  height:85%;
+  width:85%;
+}
 
 /* NAVBAR HEADER */
 .nav-head {
   font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
   font-weight: 200;
   letter-spacing: 10px;
+  padding-left: 1rem;
+  opacity: 0.8;
+  
+  
 }
+
+.brand-logo{
+  padding-left: 2rem;
+}
+
+.nav-link:hover{
+  opacity:0.5;
+}
+
+.nav-link:active{
+  opacity:0.5;
+}
+.flow-text{
+  text-align: left;
+}
+.resultRow{
+  text-align: left;
+}
+
+
 .block{
   color: black;
 }
@@ -65,7 +100,22 @@ img {
 .navbutton{
   text-align: center;
 }
+.visualRow{
+  padding-top: 5rem;
+  
+  border-radius: 2rem;
+  transition:text ease-in 0.5s;
+  
+  
+}
+.visualRow:hover{
+  opacity: 0.7;
 
+  
+}
+.resultText{
+  
+}
 
 .footerflow{
   text-align: center;
@@ -79,6 +129,7 @@ img {
  font-family: 'Montserrat', sans-serif;
   font-size: 30px;
   opacity: 0.7;
+  padding-bottom: 1rem;
 }
 
 .alert {

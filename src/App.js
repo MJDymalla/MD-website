@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './store.js';
-
+import database from './firebase/firebase';
 // PAGES
 import MainPage from './index.js';
 import Login from './Routes/user.js';
@@ -43,6 +43,23 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
             />
     )} />
 )
+
+//put info into db
+database.ref().set({
+    name: 'Jason Genova',
+    location: 'delrey Fitness',
+    condition: 'autism',
+    iq: 17
+});
+// fetch request check console for what comes back
+database.ref().once('value').then((snapshot) => {
+    const val = snapshot.val();
+    console.log(val);
+});
+
+
+
+
 
 class App extends Component {
     render() {
