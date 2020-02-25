@@ -22,7 +22,7 @@ class Navigation extends Component {
               <div className="nav-wrapper ">
                 <a className=" nav-head "> MASS DIPLOMACY </a>
 
-                <a href="#" data-target="mobile-demo" className="sidenav-trigger">
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
                   <i className="medium material-icons icon-color">menu</i>
                 </a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">

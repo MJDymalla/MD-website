@@ -21,7 +21,8 @@
     "react-transition-group": "^1.2.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "survey-react": "^1.5.7"
+    "survey-react": "^1.5.7",
+    "uuid": "^7.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -8,19 +8,29 @@ import {GoogleLogin, GoogleLogout} from 'react-google-login';
 import Navigation from '../Navigation/Navigation.js';
 import M from 'materialize-css';
 import {startLogin} from '../Actions/auth';
-
+import database from "../firebase/firebase";
+import { v4 as uuidv4 } from "uuid";
 class Login extends Component {
     // SET AUTHENTICATED TO TRUE - trigger redux action (save users name)
     login = (res) => {
         fakeAuth.authenticate()
         const currentUser = {
-            firstName: res.profileObj.givenName,
-            lastName: res.profileObj.familyName,
-            email: res.profileObj.email
-        }
+          firstName: res.profileObj.givenName,
+          lastName: res.profileObj.familyName,
+          email: res.profileObj.email,
+          img: res.profileObj.imageUrl,
+          id: uuidv4(),
+        };
         this.props.logUser(currentUser);
         M.toast({html:"Success! Welcome " + this.props.users.firstName}, 4000)
         console.log(res.profileObj);
+        database.ref(`users/${currentUser.id}/info`).set({
+          
+          firstName: currentUser.firstName,
+          lastName: currentUser.lastName,
+          email: currentUser.email,
+          img: currentUser.img
+        });
     }
 
     // SET AUTHENTICATED TO FALSE - trigger redux action (set user to null)
@@ -102,8 +112,8 @@ const mapStateToProps = state => ({
     users: state.currentuser.user
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    startLogin: () => dispatch(startLogin)
-});
+// const mapDispatchToProps = (dispatch) => ({
+//     startLogin: () => dispatch(startLogin)
+// });
 
-export default connect(mapStateToProps, { logUser })(Login);
+export default connect(mapStateToProps, {logUser})(Login);

@@ -45,12 +45,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 )
 
 //put info into db
-database.ref().set({
-    name: 'Jason Genova',
-    location: 'delrey Fitness',
-    condition: 'autism',
-    iq: 17
-});
+
 // fetch request check console for what comes back
 database.ref().once('value').then((snapshot) => {
     const val = snapshot.val();

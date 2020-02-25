@@ -9,7 +9,8 @@ export default function(state = initialState, action) {
         case LOG_USER:
             return {
                 ...state,
-                user: action.payload
+                user: action.payload,
+                
             }
 
         default:
