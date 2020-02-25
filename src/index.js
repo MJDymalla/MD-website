@@ -15,10 +15,13 @@ const MainPage = () => {
         </h2>
       </div>
       <Parallax />
-      <div className="center">
-        <br/>
-        <Link to='/login'>CONTINUE</Link>
+      <div className="container center">
+        <div className="row">
+          <br />
+          <Link to='/login'>CONTINUE</Link>
+        </div>
       </div>
+
     </>
     );
 };

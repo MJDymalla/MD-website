@@ -47,6 +47,7 @@ class Login extends Component {
                 <Navigation />
 
                 <div className="container center">
+                <i className="medium material-icons icon-color">account_circle</i>
                     <header className="pageHeaders center">
                         Login
                     </header><hr />
@@ -72,7 +73,6 @@ class Login extends Component {
                     {logged_in}<hr />
                     <Link to="/survey"><button className="btn waves-effect waves-light blue lighten-1" disabled={this.buttonState()}>Continue to survey</button></Link>
                 </div>
-
             </div>
         )
     }

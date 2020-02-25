@@ -8,6 +8,7 @@ class Results extends Component {
                 <Navigation/>
                 <div className="container center">
                     <div>
+                        <i className="medium material-icons icon-color">pie_chart_outlined</i>
                         <header className="pageHeaders">
                             Results
                             </header><hr />

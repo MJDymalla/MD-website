@@ -13,19 +13,19 @@ class Navigation extends Component {
     render()
     {
         var status = fakeAuth.isAuthenticated ? (
-            <span className="badge green darken-3 white-text">Logged in: {this.props.users.firstName} {this.props.users.lastName}</span>
-    ) : null
+            <i className="medium material-icons icon-color">lock_open</i>
+    ) : <i className="medium material-icons icon-color">lock</i>
 
         return (
             <div>
                 <nav>
-                    <div className="nav-wrapper blue-grey darken-3 ">
-                        <a className="brand-logo nav-head blue-grey darken-3 "> Mass Diplomacy Mindset Profile</a>
+                    <div className="nav-wrapper ">
+                        <a className="brand-logo nav-head "> MASS DIPLOMACY </a>
 
-                        <a href="#" data-target="mobile-demo" class="sidenav-trigger">menu</a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i className="medium material-icons icon-color">menu</i></a>
                         <ul id="nav-mobile" className="right hide-on-med-and-down">
                             <li>
-                            <Link to="/login" className="nav-link">{status}</Link>
+                                <Link to="/login" className="nav-link">{status}</Link>
                             </li>
                             <li>
                                 <Link to="/" className="nav-link">HOME</Link>
@@ -61,6 +61,9 @@ class Navigation extends Component {
                     </li>
                     <li>
                         <Link to="/results" className="nav-link">RESULTS</Link>
+                    </li>
+                    <li>
+                        <Link to="/login" className="nav-link">{status}</Link>
                     </li>
                 </ul>
                 <br/>

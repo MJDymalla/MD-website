@@ -8,10 +8,12 @@ const AboutUs = () => {
         <div className="origin">
             <Navigation />
             <div className="container">
-
-                <header className="pageHeaders grey-text darken-4 text-accent-1 center">
-                    About us
-                </header><hr/>
+                <div className="center">
+                    <i className="medium material-icons icon-color">info</i>
+                    <header className="pageHeaders darken-4 text-accent-1 center">
+                        About us
+                    </header><hr/>
+                </div>
 
                 <h4 className="flow-text grey-text darken-4 text-accent-1">
                     Who are we

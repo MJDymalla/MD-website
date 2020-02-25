@@ -41,9 +41,12 @@ class QuestionPage extends Component {
             <div className="origin">
                 <Navigation />
                 <div className="container">
-                    <header className="pageHeaders center">
-                        Questions
-                    </header>
+                    <div className="center">
+                        <i className="medium material-icons icon-color">visibility</i>
+                        <header className="pageHeaders">
+                            Questions
+                        </header>
+                    </div>
 
                     {surveyRender}
                     {onSurveyCompletion}

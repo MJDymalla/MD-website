@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
-import "materialize-css/dist/css/materialize.min.css";
-
 
 class Footer extends Component {
     render() {
         return (
-            <footer className="footer page-footer blue-grey darken-3">
+            <footer className="footer page-footer">
                 <div className="container">
                     <div className="row center">
                         <p>&copy; KIMJ Development</p>
