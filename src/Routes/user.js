@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import {fakeAuth} from '../App.js'
 import {GoogleLogin, GoogleLogout} from 'react-google-login';
 import Navigation from '../Navigation/Navigation.js';
+import M from 'materialize-css';
 
 class Login extends Component {
     // SET AUTHENTICATED TO TRUE - trigger redux action (save users name)
@@ -13,13 +14,17 @@ class Login extends Component {
         fakeAuth.authenticate()
         const currentUser = {
             firstName: res.profileObj.givenName,
-            lastName: res.profileObj.familyName
+            lastName: res.profileObj.familyName,
+            email: res.profileObj.email
         }
         this.props.logUser(currentUser);
+        M.toast({html:"Success! Welcome " + this.props.users.firstName}, 4000)
+        console.log(res.profileObj);
     }
 
     // SET AUTHENTICATED TO FALSE - trigger redux action (set user to null)
     log_out = () => {
+        M.toast({html: this.props.users.firstName + " has logged out"}, 4000)
         fakeAuth.signout()
         this.props.logUser(null);
     }
@@ -39,7 +44,13 @@ class Login extends Component {
 
     render() {
         var logged_in = fakeAuth.isAuthenticated ? (
-            <div>Welcome {this.props.users.firstName}!<br/></div>
+            <div>
+                <b>Current user</b>
+                <p>
+                    <b>Name:</b> {this.props.users.firstName} {this.props.users.lastName}<br/>
+                    <b>E-mail:</b> {this.props.users.email}
+                </p>
+            </div>
         ) : <div>No user logged in</div>
 
         return (
