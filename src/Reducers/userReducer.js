@@ -5,14 +5,21 @@ const initialState = {
 }
 
 export default function(state = initialState, action) {
-    switch(action.type) {
-        case LOG_USER:
-            return {
-                ...state,
-                user: action.payload,
-            }
-
-        default:
-            return state;
+    switch (action.type) {
+      case LOG_USER:
+        return {
+          ...state,
+          user: action.payload
+        };
+      case 'SCORE_USER':
+        return {
+          ...state,
+          user:{
+              ...state.user,
+              entrepreneurScore: action.payload
+          }
+        };
+      default:
+        return state;
     }
 }

@@ -7,6 +7,8 @@ import json from './JSONQuestions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { surveyResult } from '../Actions/surveyAction';
+import { scoreUser } from '../Actions/userActions';
+import database from "../firebase/firebase";
 
 class QuestionPage extends Component {
     constructor(props) {
@@ -15,11 +17,17 @@ class QuestionPage extends Component {
         this.onCompleteComponent = this.onCompleteComponent.bind(this)
     }
 
-    onCompleteComponent = (res) => {
+    onCompleteComponent = (res, state) => {
         this.setState({
             isComplete: true
         });
+        const scoreE = res.data;
+        console.log(scoreE);
         this.props.surveyResult(res.data);
+        this.props.scoreUser(scoreE);
+        database.ref(`users/${this.props.users.id}/info/entrepreneurScore`).update({
+          entrepreneurScore: scoreE
+        });
     }
 
     render() {
@@ -61,11 +69,14 @@ class QuestionPage extends Component {
 
 QuestionPage.propTypes = {
     surveyResult: PropTypes.func.isRequired,
-    survey_data: PropTypes.object
+    scoreUser: PropTypes.func.isRequired,
+    survey_data: PropTypes.object,
+    score_num: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-    survey_data: state.surveydata
+    survey_data: state.surveydata,
+    users: state.currentuser.user
 });
 
-export default connect(mapStateToProps, {surveyResult})(QuestionPage);
+export default connect(mapStateToProps, {surveyResult, scoreUser})(QuestionPage);

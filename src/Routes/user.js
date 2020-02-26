@@ -20,10 +20,21 @@ class Login extends Component {
           lastName: res.profileObj.familyName,
           email: res.profileObj.email,
           img: res.profileObj.imageUrl,
-          id: uuidv4(),
+          id: res.profileObj.googleId,
+          entrepreneurScore: 0,
+          depressionScore: 0
         };
         this.props.logUser(currentUser);
         M.toast({html:"Success! Welcome " + this.props.users.firstName}, 4000)
+        console.log(res.profileObj)
+        database.ref(`users/${this.state.currentuser.id}/info`).set({
+          firstName: currentUser.firstName,
+          lastName: currentUser.lastName,
+          email: currentUser.email,
+          img: currentUser.img,
+          entrepreneurScore:'',
+          depressionScore: ''
+        });
     }
 
     // SET AUTHENTICATED TO FALSE - trigger redux action (set user to null)

@@ -6,4 +6,15 @@ export const logUser = (userData) => dispatch => {
         type: LOG_USER,
         payload: userData
     });
+
+
+}
+
+export const scoreUser = (score) => dispatch => {
+    dispatch({
+        type: 'SCORE_USER',
+        payload: score
+    });
+
+
 }
