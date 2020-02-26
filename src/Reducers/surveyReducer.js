@@ -1,15 +1,15 @@
-import { LOG_USER } from '../Actions/types';
+import { SURVEY_COMPLETE } from '../Actions/types';
 
 const initialState = {
-    user: {}
+    survey_data: {}
 }
 
 export default function(state = initialState, action) {
     switch(action.type) {
-        case LOG_USER:
+        case SURVEY_COMPLETE:
             return {
                 ...state,
-                user: action.payload,
+                survey_data: action.payload
             }
 
         default:

@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation.js';
 import "survey-react/survey.css";
 import * as Survey from "survey-react";
-import 'react-perfect-scrollbar/dist/css/styles.css';
 import json from './JSONQuestions';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { surveyResult } from '../Actions/surveyAction';
 
 class QuestionPage extends Component {
     constructor(props) {
@@ -17,7 +19,7 @@ class QuestionPage extends Component {
         this.setState({
             isComplete: true
         });
-        console.log(JSON.stringify(res.data, null, 3));
+        this.props.surveyResult(res.data);
     }
 
     render() {
@@ -56,4 +58,14 @@ class QuestionPage extends Component {
         );
     };
 }
-export default QuestionPage;
+
+QuestionPage.propTypes = {
+    surveyResult: PropTypes.func.isRequired,
+    survey_data: PropTypes.object
+};
+
+const mapStateToProps = state => ({
+    survey_data: state.surveydata
+});
+
+export default connect(mapStateToProps, {surveyResult})(QuestionPage);

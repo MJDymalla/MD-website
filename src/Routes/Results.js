@@ -7,19 +7,27 @@ import { connect } from 'react-redux';
 
 class Results extends Component {
     render() {
-        return (
+        var user_answers = Object.entries(this.props.results).map(([key, value])=>{
+          return(
+            <div>{key} : {value}</div>
+          );
+        })
 
+        return (
           <div className="origin">
             <Navigation />
             <div className="container center">
               <header className="pageHeaders">Results</header>
 
               <div className="row resultRow">
+                <h4>
+                  Survey Answers
+                </h4>
+                <div>{user_answers}</div>
+
                 <h1 className="left-aligned flow-text grey-text darken-4 text-accent-1">
                   Introduction
                 </h1>
-
-                <p>{this.props.users.firstName} is short, send ligma to {this.props.users.email}</p>
 
                 <p class="flow-text">
                   High Self-Confidence – Architects trust their rationalism
@@ -114,11 +122,11 @@ class Results extends Component {
 }
 
 Results.propTypes = {
-  users: PropTypes.object
+  results: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-  users: state.currentuser.user
+  results: state.surveydata.survey_data
 });
 
 export default connect(mapStateToProps, {})(Results);
