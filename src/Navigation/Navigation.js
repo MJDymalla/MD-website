@@ -14,7 +14,11 @@ class Navigation extends Component {
     {
         var status = fakeAuth.isAuthenticated ? (
             <i className="medium material-icons icon-color">lock_open</i>
-    ) : <i className="medium material-icons icon-color">lock</i>
+        ) : <i className="medium material-icons icon-color">lock</i>
+
+        var tip = fakeAuth.isAuthenticated ? (
+          "Authenticated"
+        ) : "Un-authenticated"
 
         return (
           <div>
@@ -26,11 +30,13 @@ class Navigation extends Component {
                   <i className="medium material-icons icon-color">menu</i>
                 </a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">
-                  <li>
+                  <li
+                    className="nav-link tooltipped"
+                    data-position="bottom"
+                    data-tooltip={tip}
+                    activeClassName="false"
+                  >
                     {status}
-                  </li>
-                  <li>
-
                   </li>
                   <li>
                     <NavLink
@@ -74,9 +80,6 @@ class Navigation extends Component {
 
             <ul className="sidenav" id="mobile-demo">
               <li>
-
-              </li>
-              <li>
                 <NavLink to="/login" className="nav-link">
                   USER
                 </NavLink>
@@ -109,9 +112,7 @@ class Navigation extends Component {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="#" className="nav-link">
                   {status}
-                </NavLink>
               </li>
             </ul>
             <br />

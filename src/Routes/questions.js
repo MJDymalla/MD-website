@@ -61,7 +61,6 @@ class QuestionPage extends Component {
                     {surveyRender}
                     {onSurveyCompletion}
                 </div>
-
             </div>
         );
     };

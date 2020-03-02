@@ -26,8 +26,8 @@ class Login extends Component {
         };
         this.props.logUser(currentUser);
         M.toast({html:"Success! Welcome " + this.props.users.firstName}, 4000)
-        console.log(res.profileObj)
-        database.ref(`users/${this.state.currentuser.id}/info`).set({
+
+        database.ref(`users/${this.props.users.id}/info`).set({
           firstName: currentUser.firstName,
           lastName: currentUser.lastName,
           email: currentUser.email,
@@ -60,13 +60,36 @@ class Login extends Component {
     render() {
         var logged_in = fakeAuth.isAuthenticated ? (
             <div>
-                <b>Current user</b>
+                <h5 className="subHeader">User Details</h5>
                 <p>
-                    <b>Name:</b> {this.props.users.firstName} {this.props.users.lastName}<br/>
-                    <b>E-mail:</b> {this.props.users.email}
-                </p>
+                    <i className="tiny material-icons">person_pin_circle</i> {this.props.users.firstName} {this.props.users.lastName}<br/>
+                    <i className="tiny material-icons">email</i> {this.props.users.email}
+                </p><br/>
+
+                <GoogleLogout
+                    clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
+                    buttonText="Logout"
+                    onLogoutSuccess={this.log_out}
+                />
             </div>
-        ) : <div>No user logged in</div>
+        ) :
+        <div>
+            <p className="text-accent-1">
+                During this development phase
+                we kindly ask that you provide a valid Google account for secure authentication.
+            </p>
+            <p>
+                Don't have an account? <br/> <a href='https://accounts.google.com/sigNup' target='_blank'>Create one here.</a>
+            </p><br/>
+
+            <GoogleLogin
+                clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
+                buttonText="Login"
+                onSuccess={this.login}
+                onFailure={this.responseGoogle}
+                cookiePolicy={'single_host_origin'}
+            />
+        </div>
 
         return (
             <div className="origin">
@@ -75,38 +98,17 @@ class Login extends Component {
                 <div className="container center ">
                     <i className="medium material-icons icon-color">account_circle</i>
                     <header className="pageHeaders center">
-                        Login
+                        ACCOUNT
                     </header><hr />
 
                     <div className="row">
                         <div className="col s6">
-                            <p className="text-accent-1">
-                                During this development phase
-                                we kindly ask that you provide a valid Google account for secure authentication.
-                            </p>
-
-                            <p>Don't have an account? <br/> <a href='https://accounts.google.com/sigNup' target='_blank'>Create one here.</a></p><br/>
-
-                            <GoogleLogin
-                                clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
-                                buttonText="Login"
-                                onSuccess={this.login}
-                                onFailure={this.responseGoogle}
-                                cookiePolicy={'single_host_origin'}
-                            />
-                            <GoogleLogout
-                                clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
-                                buttonText="Logout"
-                                onLogoutSuccess={this.log_out}
-                            />
-                            <br/><br/>
                             {logged_in}
                         </div>
 
                         <div className="col s6">
                             <img className="login_img" src={locked} alt=""/>
                         </div>
-
                     </div><hr />
                     <Link to="/survey"><button className="btn waves-effect waves-light blue lighten-1" disabled={this.buttonState()}>Continue to survey</button></Link>
                 </div>

@@ -27,7 +27,7 @@ class LandingPage extends Component {
                     <div className="row container">
 
                         <p className="navy-text">
-                            <i>“Obsessed is a word used often by the lazy, in order to describe the dedicated.”</i> – Tai Lopez
+                            <i>“It wasn't that long ago that I was in a little Lamborghini sleeping in a mobile home with only $40,000 in my Lamborghini”</i> – Tai Lopez
                         </p>
                     </div>
                 </div>

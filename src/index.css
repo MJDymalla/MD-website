@@ -1,6 +1,6 @@
 
 .origin{
-  min-height: 85vh;
+  min-height: 87vh;
   height:100%;
   position: relative;
 }
@@ -28,7 +28,7 @@ html {
   letter-spacing: 3px;
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -39,6 +39,7 @@ h1, h2, h3, h4 {
 .about-text {
   border-left-color: rgba(197, 198, 199, 0.692);
   padding-bottom: 1.5rem;
+  line-height: 1.75;
 }
 
 i.icon-color {
@@ -49,18 +50,17 @@ img {
   width: 80px;
   height: auto;
 }
-
 .container {
   font-family: 'Chivo';
-
 }
 
 .parallax-container {
   height: 600px;
 }
 .active{
-  opacity:0.5;
-  background: #666;
+  color: #66FCF1;
+  border-bottom: 3px solid #66FCF1;
+
 }
 .resultimg{
   height:85%;
@@ -70,6 +70,15 @@ img {
 .login_img {
   height: 85%;
   width: 85%;
+}
+.about_images {
+  height: 85%;
+  width: 85%;
+}
+.landing_images {
+  height: 70%;
+  width: 70%;
+  opacity: 0.9;
 }
 
 /* NAVBAR HEADER */
@@ -133,6 +142,14 @@ img {
   padding-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 4px;
+}
+
+.subHeader {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .alert {
