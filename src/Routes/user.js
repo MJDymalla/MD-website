@@ -79,7 +79,7 @@ class Login extends Component {
                 we kindly ask that you provide a valid Google account for secure authentication.
             </p>
             <p>
-                Don't have an account? <br/> <a href='https://accounts.google.com/sigNup' target='_blank'>Create one here.</a>
+                Don't have an account? <br/><a href='https://accounts.google.com/sigNup' target='_blank'>Create one here.</a>
             </p><br/>
 
             <GoogleLogin
@@ -92,25 +92,26 @@ class Login extends Component {
         </div>
 
         return (
-            <div className="origin">
+            <div>
                 <Navigation />
+                <div className="origin">
+                    <div className="container center ">
+                        <i className="medium material-icons icon-color">account_circle</i>
+                        <header className="pageHeaders center">
+                            ACCOUNT
+                        </header><hr />
 
-                <div className="container center ">
-                    <i className="medium material-icons icon-color">account_circle</i>
-                    <header className="pageHeaders center">
-                        ACCOUNT
-                    </header><hr />
+                        <div className="row">
+                            <div className="col s6">
+                                {logged_in}
+                            </div>
 
-                    <div className="row">
-                        <div className="col s6">
-                            {logged_in}
-                        </div>
-
-                        <div className="col s6">
-                            <img className="login_img" src={locked} alt=""/>
-                        </div>
-                    </div><hr />
-                    <Link to="/survey"><button className="btn waves-effect waves-light blue lighten-1" disabled={this.buttonState()}>Continue to survey</button></Link>
+                            <div className="col s6">
+                                <img className="login_img" src={locked} alt=""/>
+                            </div>
+                        </div><hr />
+                        <Link to="/survey"><button className="btn waves-effect waves-light blue lighten-1" disabled={this.buttonState()}>Continue to survey</button></Link>
+                    </div>
                 </div>
             </div>
         )

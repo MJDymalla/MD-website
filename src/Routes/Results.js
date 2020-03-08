@@ -14,54 +14,56 @@ class Results extends Component {
         })
 
         return (
-          <div className="origin">
+          <div>
             <Navigation />
-            <div className="container center">
-              <header className="pageHeaders">Results</header>
+            <div className="origin">
+              <div className="container center">
+                <header className="pageHeaders">Results</header>
 
-              <div className="row resultRow">
-                <h4>
-                  Survey Answers
-                </h4>
-                <div>{user_answers}</div>
-              </div>
-
-              <div className="row visualRow">
-                <div className="col s6 resultText">
-                  <h3 className="flow-text grey-text darken-4 text-accent-1">
-                    Prefer Visuals?
-                  </h3>
-                  <p className="flow-text">
-                    Click here for a breakdown of your results through a series
-                    of graphs and informatics
-                  </p>
+                <div className="row resultRow">
+                  <h4>
+                    Survey Answers
+                  </h4>
+                  <div>{user_answers}</div>
                 </div>
-                <div className="col s6">
-                  <img
-                    className="responsive-img resultimg"
-                    src={Undraw2}
-                    alt=""
-                  />
-                </div>
-              </div>
 
-              <div className="row visualRow">
-                <div className="col s6">
-
-                  <img
-                    className="responsive-img resultimg"
-                    src={Undraw1}
-                    alt=""
-                  />
+                <div className="row visualRow">
+                  <div className="col s6 resultText">
+                    <h3 className="flow-text grey-text darken-4 text-accent-1">
+                      Prefer Visuals?
+                    </h3>
+                    <p className="flow-text">
+                      Click here for a breakdown of your results through a series
+                      of graphs and informatics
+                    </p>
+                  </div>
+                  <div className="col s6">
+                    <img
+                      className="responsive-img resultimg"
+                      src={Undraw2}
+                      alt=""
+                    />
+                  </div>
                 </div>
-                <div className="col s6">
-                  <h3 className="flow-text grey-text darken-4 text-accent-1">
-                    Want to stay informed?
-                  </h3>
-                  <p className="flow-text">
-                    Click here to get your results emailed to your registered
-                    email address
-                  </p>
+
+                <div className="row visualRow">
+                  <div className="col s6">
+
+                    <img
+                      className="responsive-img resultimg"
+                      src={Undraw1}
+                      alt=""
+                    />
+                  </div>
+                  <div className="col s6">
+                    <h3 className="flow-text grey-text darken-4 text-accent-1">
+                      Want to stay informed?
+                    </h3>
+                    <p className="flow-text">
+                      Click here to get your results emailed to your registered
+                      email address
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

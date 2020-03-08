@@ -23,7 +23,7 @@ class Navigation extends Component {
         return (
           <div>
             <nav>
-              <div className="nav-wrapper ">
+              <div className="nav-wrapper z-depth-2">
                 <a className=" nav-head "> MASS DIPLOMACY </a>
 
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger">

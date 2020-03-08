@@ -48,18 +48,20 @@ class QuestionPage extends Component {
         ) : null
 
         return (
-            <div className="origin">
+            <div>
                 <Navigation />
-                <div className="container">
-                    <div className="center">
-                        <i className="medium material-icons icon-color">visibility</i>
-                        <header className="pageHeaders">
-                            Questions
-                        </header>
-                    </div>
+                <div className="origin">
+                    <div className="container">
+                        <div className="center">
+                            <i className="medium material-icons icon-color">visibility</i>
+                            <header className="pageHeaders">
+                                Questions
+                            </header>
+                        </div>
 
-                    {surveyRender}
-                    {onSurveyCompletion}
+                        {surveyRender}
+                        {onSurveyCompletion}
+                    </div>
                 </div>
             </div>
         );
