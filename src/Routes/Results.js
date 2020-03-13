@@ -6,70 +6,74 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class Results extends Component {
-    render() {
-        var user_answers = Object.entries(this.props.results).map(([key, value])=>{
-          return(
-            <div>{key} : {value}</div>
-          );
-        })
+  render() {
+    var user_answers = Object.entries(this.props.results).map(([key, value]) => {
+      return (
+        <div>{key} : {value}</div>
+      );
+    })
 
-        return (
-          <div>
-            <Navigation />
-            <div className="origin">
-              <div className="container center">
-                <header className="pageHeaders">Results</header>
+    return (
+      <div>
+        <Navigation />
+        <div className="origin">
+          <div className="headers center container">
+            <i className="medium material-icons icon-color">equalizer</i>
+            <header className="pageHeaders white-text">
+              Results
+            </header>
+          </div>
+          <div className="container center content">
+            <div className="row resultRow">
+              <h4>
+                Survey Answers
+              </h4>
+              <div>{user_answers}</div>
+            </div>
 
-                <div className="row resultRow">
-                  <h4>
-                    Survey Answers
-                  </h4>
-                  <div>{user_answers}</div>
-                </div>
+            <div className="row visualRow">
+              <div className="col s6 resultText">
+                <h3 className="flow-text grey-text darken-4 text-accent-1">
+                  Prefer Visuals?
+                </h3>
+                <p className="flow-text">
+                  Click here for a breakdown of your results through a series
+                  of graphs and informatics
+                </p>
+              </div>
+              <div className="col s6">
+                <img
+                  className="responsive-img resultimg"
+                  src={Undraw2}
+                  alt=""
+                />
+              </div>
+            </div>
 
-                <div className="row visualRow">
-                  <div className="col s6 resultText">
-                    <h3 className="flow-text grey-text darken-4 text-accent-1">
-                      Prefer Visuals?
-                    </h3>
-                    <p className="flow-text">
-                      Click here for a breakdown of your results through a series
-                      of graphs and informatics
-                    </p>
-                  </div>
-                  <div className="col s6">
-                    <img
-                      className="responsive-img resultimg"
-                      src={Undraw2}
-                      alt=""
-                    />
-                  </div>
-                </div>
+            <div className="row visualRow">
+              <div className="col s6">
 
-                <div className="row visualRow">
-                  <div className="col s6">
-
-                    <img
-                      className="responsive-img resultimg"
-                      src={Undraw1}
-                      alt=""
-                    />
-                  </div>
-                  <div className="col s6">
-                    <h3 className="flow-text grey-text darken-4 text-accent-1">
-                      Want to stay informed?
-                    </h3>
-                    <p className="flow-text">
-                      Click here to get your results emailed to your registered
-                      email address
-                    </p>
-                  </div>
-                </div>
+                <img
+                  className="responsive-img resultimg"
+                  src={Undraw1}
+                  alt=""
+                />
+              </div>
+              <div className="col s6">
+                <h3 className="flow-text grey-text darken-4 text-accent-1">
+                  Want to stay informed?
+                </h3>
+                <p className="flow-text">
+                  Click here to get your results emailed to your registered
+                  email address
+                </p>
               </div>
             </div>
           </div>
-        );
-    }
+        </div>
+      </div>
+    );
+  }
 }
 
 Results.propTypes = {

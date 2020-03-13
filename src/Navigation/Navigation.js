@@ -23,8 +23,8 @@ class Navigation extends Component {
         return (
           <div>
             <nav>
-              <div className="nav-wrapper z-depth-2">
-                <a className=" nav-head "> MASS DIPLOMACY </a>
+              <div className="nav-wrapper">
+                <a className="nav-head"> MASS DIPLOMACY </a>
 
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger">
                   <i className="medium material-icons icon-color">menu</i>
@@ -34,7 +34,6 @@ class Navigation extends Component {
                     className="nav-link tooltipped"
                     data-position="bottom"
                     data-tooltip={tip}
-                    activeClassName="false"
                   >
                     {status}
                   </li>

@@ -44,25 +44,31 @@ class LandingPage extends Component {
                 <div className="row center valign-wrapper landing-info">
                     <div className="col m4">
                         <i className="large material-icons icon-color">enhanced_encryption</i>
-                        <h5 className="subHeader white-text">Secure</h5>
+                        <h5 className="subHeader white-text">
+                            Secure
+                        </h5>
                         <p className="grey-text">
-                        <i>User information is kept secure and private.</i>
+                            <i>User information is kept secure and private.</i>
                         </p>
                     </div>
 
                     <div className="col m4">
                         <i className="large material-icons icon-color">fingerprint</i>
-                        <h5 className="subHeader white-text">Researched</h5>
+                        <h5 className="subHeader white-text">
+                            Researched
+                        </h5>
                         <p className="grey-text">
-                        <i>Profile based on psychological research.</i>
+                            <i>Profile based on psychological research.</i>
                         </p>
                     </div>
 
                     <div className="col m4">
                         <i className="large material-icons icon-color">repeat</i>
-                        <h5 className="subHeader white-text">Continuous Improvement</h5>
+                        <h5 className="subHeader white-text">
+                            Continuous Improvement
+                        </h5>
                         <p className="grey-text">
-                        <i>Emphasis on continuous improvement and education.</i>
+                            <i>Emphasis on continuous improvement and education.</i>
                         </p>
                     </div>
                 </div>
@@ -72,22 +78,20 @@ class LandingPage extends Component {
                         <i>Anyone who has never made a mistake has never tried anything new.</i>
                     </p>
                     <p className="landing-para center white-text">
-                        Profile <i className="tiny material-icons icon-color">linear_scale</i> Money <i className="tiny material-icons icon-color">linear_scale</i> Lambo
+                        Profile <i className="tiny material-icons icon-color">linear_scale</i> Money <i className="tiny material-icons icon-color">linear_scale</i> Esskettit
                     </p>
 
                     <div className="begin center white-text">
                         <Link to='/login'>BEGIN</Link>
                     </div>
+
                     <div
                         ref={Parallax => {
                             this.Parallax2 = Parallax;
                         }}
                         className="parallax"
                     >
-                        <div className="bg1"><img src={Image1} /></div>
-                        <div className="row">
-
-                </div>
+                        <div className="bg1"><img src={Image1}/></div>
                     </div>
                 </div>
             </div>
