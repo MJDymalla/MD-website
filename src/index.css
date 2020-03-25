@@ -27,7 +27,7 @@ img {
 
 hr.style {
   border: none;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.2);
   height: 1.5px;
   width: 60%;
 }
@@ -38,11 +38,6 @@ hr.style {
 
 .content {
   padding-top: 10px;
-}
-
-.standard-btn {
-  background-color: rgb(30, 34, 34, 0.9) !important;
-  color: rgb(255, 255, 255) !important;
 }
 
 /* LANDING PAGE */
@@ -118,9 +113,12 @@ nav {
 }
 .nav-link {
   color: grey;
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 .nav-link:hover {
-  color: rgb(163, 159, 159);
+  color: rgb(190, 189, 189);
   border-bottom: 2px solid #66FCF1;
 }
 .active{
@@ -174,7 +172,7 @@ h5 {
 }
 
 /* WHITE CONTENT CONTAINERS */
-.content-container {
+.floating-container {
   border-radius: 5px;
   box-shadow: 4px 4px 4px rgb(175, 175, 175);
   background-color: rgb(255, 253, 253);
@@ -187,9 +185,11 @@ h5 {
 }
 
 .about-block {
-  border-left-color: rgba(197, 198, 199, 0.692);
-  padding-bottom: 1.5rem;
-  color: rgb(87, 84, 84);
+  border-left-color: rgba(0, 0, 0, 0.6);
+  font-size: 14px;
+  padding: 1rem;
+  color: rgb(82, 81, 81);
+  border-radius: 4px;
 }
 .about-text {
   line-height: 27px;
@@ -203,7 +203,10 @@ h5 {
 .login_img {
   height: 100%;
   width: 100%;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px rgb(175, 175, 175);
 }
+
 
 .about_images {
   height: 85%;
