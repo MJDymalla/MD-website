@@ -19,7 +19,7 @@ class surveyPage extends Component {
                     </div>
 
                     <div className='container center content'>
-                        <div className="floating-container">
+                        <div className="floating-container floating-content">
                             <p>
                                 Clicking the button below will begin the mindset profile.<br/>
                                 You will be presented with a series of questions to assess the way you think.

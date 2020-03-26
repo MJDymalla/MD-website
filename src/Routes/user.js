@@ -11,7 +11,7 @@ import {startLogin} from '../Actions/auth';
 import database from "../firebase/firebase";
 import { v4 as uuidv4 } from "uuid";
 import locked from '../Images/login.png';
-import user from '../Images/user.jpg';
+import user from '../Images/buildings.jpg';
 
 class Login extends Component {
     // SET AUTHENTICATED TO TRUE - trigger redux action (save users name)
@@ -61,7 +61,7 @@ class Login extends Component {
 
     render() {
         var logged_in = fakeAuth.isAuthenticated ? (
-            <div className="floating-container">
+            <div className="floating-container floating-content">
                 <h4 className="subHeader">
                     User Details
                 </h4><hr className="style"/>
@@ -102,15 +102,15 @@ class Login extends Component {
                 />
             </div>
         ) :
-            <div className="row ">
-                <div className="col s5 floating-container">
+            <div className="row floating-container">
+                <div className="col s5 floating-content">
                     <h4 className="subHeader">
                         Login
                     </h4><hr className="style" />
 
                     <p className="text-accent-1">
-                        During this development phase
-                        we kindly ask that you provide a valid Google account for secure authentication.
+                        Welcome to Mass Diplomacy's Mindset Profile, <br/> During this development phase
+                        we kindly ask that you login using a valid Google account for secure authentication.
                     </p>
 
                     <i class="fab fa-google fa-lg" />
@@ -133,7 +133,7 @@ class Login extends Component {
                     </p>
                 </div>
 
-                <div className="col s7">
+                <div className="col s7 log">
                     <img className="login_img" src={user} alt="" />
                 </div>
             </div>

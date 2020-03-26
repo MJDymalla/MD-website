@@ -22,7 +22,7 @@ class AboutUs extends Component {
 
                     <div className="container content">
                         <div className="row floating-container valign-wrapper">
-                            <div className="col s7">
+                            <div className="col s7 floating-content">
                                 <h4 className="subHeader">
                                     Who are we
                                 </h4>
@@ -45,7 +45,7 @@ class AboutUs extends Component {
                             <div className="col s5">
                                 <img src={about} className="about_images"/>
                             </div>
-                            <div className="col s7">
+                            <div className="col s7 floating-content">
                                 <h4 className="subHeader">
                                     What's the mindset about
                                 </h4>
@@ -61,7 +61,7 @@ class AboutUs extends Component {
                         </div>
 
                         <div className="row floating-container valign-wrapper">
-                            <div className="col s7">
+                            <div className="col s7 floating-content">
                                 <h4 className="subHeader">
                                     What's the profile about
                                 </h4>

@@ -57,7 +57,7 @@ class QuestionPage extends Component {
                             Questions
                         </header>
                     </div>
-                    <div className="container content floating-container">
+                    <div className="container content floating-container floating-content">
                         {surveyRender}
                         {onSurveyCompletion}
                     </div>
