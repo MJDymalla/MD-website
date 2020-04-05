@@ -78,7 +78,7 @@ class LandingPage extends Component {
                         <i>Anyone who has never made a mistake has never tried anything new.</i>
                     </p>
                     <p className="landing-para center white-text">
-                        Profile <i className="tiny material-icons icon-color">linear_scale</i> Money <i className="tiny material-icons icon-color">linear_scale</i> Esskettit
+                        Whatever <i className="tiny material-icons icon-color">linear_scale</i> It <i className="tiny material-icons icon-color">linear_scale</i> Takes
                     </p>
 
                     <div className="begin center white-text">

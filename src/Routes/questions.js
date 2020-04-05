@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import { surveyResult } from '../Actions/surveyAction';
 import { scoreUser } from '../Actions/userActions';
 import database from "../firebase/firebase";
+import HeaderBox from '../Components/HeaderBox';
 
 class QuestionPage extends Component {
     constructor(props) {
@@ -50,8 +51,9 @@ class QuestionPage extends Component {
         return (
             <div>
                 <Navigation />
+                <HeaderBox />
                 <div className="origin">
-                    <div className="headers center container">
+                    <div className="center header-position">
                         <i className="medium material-icons icon-color">visibility</i>
                         <header className="pageHeaders white-text">
                             Questions

@@ -4,6 +4,7 @@ import Undraw1 from "../Images/undraw_message_sent_1030.png";
 import Undraw2 from '../Images/undraw_progress_data_4ebj.png';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import HeaderBox from '../Components/HeaderBox';
 
 class Results extends Component {
   render() {
@@ -16,22 +17,23 @@ class Results extends Component {
     return (
       <div>
         <Navigation />
+        <HeaderBox />
         <div className="origin">
-          <div className="headers center container">
+          <div className="center header-position">
             <i className="medium material-icons icon-color">equalizer</i>
             <header className="pageHeaders white-text">
               Results
             </header>
           </div>
           <div className="container center content">
-            <div className="row resultRow">
+            <div className="row resultRow floating-container floating-content">
               <h4>
                 Survey Answers
               </h4>
               <div>{user_answers}</div>
             </div>
 
-            <div className="row visualRow">
+            <div className="row visualRow floating-container floating-content">
               <div className="col s6 resultText">
                 <h3 className="flow-text grey-text darken-4 text-accent-1">
                   Prefer Visuals?
@@ -50,7 +52,7 @@ class Results extends Component {
               </div>
             </div>
 
-            <div className="row visualRow">
+            <div className="row visualRow floating-container floating-content">
               <div className="col s6">
 
                 <img

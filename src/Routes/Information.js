@@ -4,6 +4,7 @@ import '../index.css';
 import FAQ from '../Images/faq.png';
 import about from '../Images/about.png';
 import mindset from '../Images/mindset.png';
+import HeaderBox from '../Components/HeaderBox';
 
 // ABOUT US PAGE
 class AboutUs extends Component {
@@ -11,15 +12,14 @@ class AboutUs extends Component {
         return (
             <div>
                 <Navigation />
+                <HeaderBox />
                 <div className="origin">
-
-                    <div className="headers center container">
-                        <i className="medium material-icons icon-color">info</i>
-                        <header className="pageHeaders white-text">
-                            About
-                        </header>
-                    </div>
-
+                <div className="header-position center">
+                            <i className="medium material-icons icon-color">info</i>
+                            <header className="pageHeaders white-text">
+                                About
+                            </header>
+                        </div>
                     <div className="container content">
                         <div className="row floating-container valign-wrapper">
                             <div className="col s7 floating-content">

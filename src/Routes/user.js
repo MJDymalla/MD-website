@@ -10,8 +10,8 @@ import M from 'materialize-css';
 import {startLogin} from '../Actions/auth';
 import database from "../firebase/firebase";
 import { v4 as uuidv4 } from "uuid";
-import locked from '../Images/login.png';
-import user from '../Images/buildings.jpg';
+import user_details from '../Images/user-details.png';
+import HeaderBox from '../Components/HeaderBox';
 
 class Login extends Component {
     // SET AUTHENTICATED TO TRUE - trigger redux action (save users name)
@@ -61,49 +61,55 @@ class Login extends Component {
 
     render() {
         var logged_in = fakeAuth.isAuthenticated ? (
-            <div className="floating-container floating-content">
-                <h4 className="subHeader">
-                    User Details
-                </h4><hr className="style"/>
+            <div className="row floating-container valign-wrapper">
+                <div className="floating-content col s6">
+                    <h4 className="subHeader">
+                        User Details
+                    </h4><hr className="style"/>
 
-                <div className="row">
-                    <img src={this.props.users.img} alt="" className="profileImage"/>
+                    <div className="row">
+                        <img src={this.props.users.img} alt="" className="profileImage"/>
+                    </div>
+
+                    <div className="row valign-wrapper">
+                        <div className="right-align col s1 offset-s4">
+                            <i className="small material-icons">person_pin_circle</i>
+                        </div>
+                        <div className="left-align col s7">
+                            <h5>name</h5>
+                            {this.props.users.firstName} {this.props.users.lastName}
+                        </div>
+                    </div>
+
+                    <div className="row valign-wrapper">
+                        <div className="right-align col s1 offset-s4">
+                            <i className="small material-icons">email</i>
+                        </div>
+                        <div className="left-align col s7">
+                            <h5>email</h5>
+                            {this.props.users.email}
+                        </div>
+                    </div> <hr className="style"/>
+
+                    <GoogleLogout
+                        clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
+                        render={renderProps => (
+                            <button className="btn-small waves-effect waves-light light-blue" onClick={renderProps.onClick} disabled={renderProps.disabled}>
+                                Logout
+                            </button>
+                        )}
+                        buttonText="Logout"
+                        onLogoutSuccess={this.log_out}
+                    />
                 </div>
 
-                <div className="row valign-wrapper">
-                    <div className="right-align col s1 offset-s4">
-                        <i className="small material-icons">person_pin_circle</i>
-                    </div>
-                    <div className="left-align col s7">
-                        <h5>name</h5>
-                        {this.props.users.firstName} {this.props.users.lastName}
-                    </div>
+                <div className="col s6">
+                    <img className="user-details" src={user_details} alt="" />
                 </div>
-
-                <div className="row valign-wrapper">
-                    <div className="right-align col s1 offset-s4">
-                        <i className="small material-icons">email</i>
-                    </div>
-                    <div className="left-align col s7">
-                        <h5>email</h5>
-                        {this.props.users.email}
-                    </div>
-                </div> <hr className="style"/>
-
-                <GoogleLogout
-                    clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
-                    render={renderProps => (
-                        <button className="btn-small waves-effect waves-light light-blue" onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                            Logout
-                        </button>
-                    )}
-                    buttonText="Logout"
-                    onLogoutSuccess={this.log_out}
-                />
             </div>
         ) :
-            <div className="row floating-container">
-                <div className="col s5 floating-content">
+            <div className="row floating-container valign-wrapper">
+                <div className="col s6 floating-content">
                     <h4 className="subHeader">
                         Login
                     </h4><hr className="style" />
@@ -113,44 +119,51 @@ class Login extends Component {
                         we kindly ask that you login using a valid Google account for secure authentication.
                     </p>
 
-                    <i class="fab fa-google fa-lg" />
-                    <hr className="style" />
-                    <GoogleLogin
-                        clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
-                        render={renderProps => (
-                            <button className="waves-effect waves-light light-blue btn-small" onClick={renderProps.onClick} disabled={renderProps.disabled}>
-                                continue with google
-                            </button>
-                        )}
-                        onSuccess={this.login}
-                        onFailure={this.responseGoogle}
-                        cookiePolicy={'single_host_origin'}
-                    />
+                    <div className="floating-content">
+                        <i class="fab fa-google fa-lg" />
+                        <hr className="style" />
+                        <GoogleLogin
+                            clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
+                            render={renderProps => (
+                                <button className="waves-effect waves-light light-blue btn-small" onClick={renderProps.onClick} disabled={renderProps.disabled}>
+                                    continue with google
+                                </button>
+                            )}
+                            onSuccess={this.login}
+                            onFailure={this.responseGoogle}
+                            cookiePolicy={'single_host_origin'}
+                        />
 
-                    <p>
-                        Don't have an account? <br />
-                        <a href='https://accounts.google.com/sigNup' target='_blank'>Create one here.</a>
-                    </p>
+                        <p>
+                            <i>or</i>
+                        </p>
+                        <p>
+                            Don't have an account?<br />
+                            <a href='https://accounts.google.com/sigNup' target='_blank'>Create one here.</a>
+                        </p>
+                    </div>
                 </div>
 
-                <div className="col s7 log">
-                    <img className="login_img" src={user} alt="" />
+                <div className="col s6">
+                    <img className="user-details" src={user_details} alt="" />
                 </div>
             </div>
 
         return (
             <div>
                 <Navigation />
+                <HeaderBox />
+
                 <div className="origin">
-                        <div className="headers center container">
-                            <i className="medium material-icons icon-color">account_circle</i>
-                            <header className="pageHeaders white-text">
-                                Account
-                            </header>
-                        </div>
-                        <div className="center content container">
-                            {logged_in}
-                        </div>
+                    <div className="center header-position">
+                        <i className="medium material-icons icon-color">account_circle</i>
+                        <header className="pageHeaders white-text">
+                            Account
+                        </header>
+                    </div>
+                    <div className="center content container">
+                        {logged_in}
+                    </div>
                 </div>
             </div>
         )
