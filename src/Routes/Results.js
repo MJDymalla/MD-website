@@ -25,6 +25,7 @@ class Results extends Component {
               Results
             </header>
           </div>
+          
           <div className="container center content">
             <div className="row resultRow floating-container floating-content">
               <h4>

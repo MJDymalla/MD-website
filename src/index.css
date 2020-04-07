@@ -25,7 +25,7 @@ img {
 hr.style {
   border: none;
   background-color: rgba(0, 0, 0, 0.2);
-  height: 1.5px;
+  height: 1.5px !important;
   width: 60%;
 }
 
@@ -165,6 +165,7 @@ h5 {
 }
 .header-img-container {
   height: 45vh !important;
+  width: 100% !important;
 }
 
 /* WHITE CONTENT CONTAINERS */
@@ -206,6 +207,11 @@ h5 {
 /* misc */
 .surveycontainer{
   padding-top: 40px;
+}
+
+.survey_img {
+  height: 30%;
+  width: 30%;
 }
 
 .resultimg{

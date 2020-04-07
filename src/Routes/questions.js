@@ -23,7 +23,6 @@ class QuestionPage extends Component {
             isComplete: true
         });
         const scoreE = res.data;
-        console.log(scoreE);
         this.props.surveyResult(res.data);
         this.props.scoreUser(scoreE);
         database.ref(`users/${this.props.users.id}/info/entrepreneurScore`).update({
@@ -33,11 +32,13 @@ class QuestionPage extends Component {
 
     render() {
         var surveyRender = !this.state.isComplete ? (
-            <Survey.Survey
-                json={json}
-                showCompletedPage={false}
-                onComplete={this.onCompleteComponent}
-            />
+            <div>
+                <Survey.Survey
+                    json={json}
+                    showCompletedPage={false}
+                    onComplete={this.onCompleteComponent}
+                />
+            </div>
         ) : null
 
         var onSurveyCompletion = this.state.isComplete ? (
@@ -59,9 +60,11 @@ class QuestionPage extends Component {
                             Questions
                         </header>
                     </div>
-                    <div className="container content floating-container floating-content">
-                        {surveyRender}
-                        {onSurveyCompletion}
+                    <div className="container content floating-container">
+                        <div className="floating-content">
+                            {surveyRender}
+                            {onSurveyCompletion}
+                        </div>
                     </div>
                 </div>
             </div>
