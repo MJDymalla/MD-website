@@ -11,6 +11,28 @@ import { scoreUser } from '../Actions/userActions';
 import database from "../firebase/firebase";
 import HeaderBox from '../Components/HeaderBox';
 
+var defaultThemeColors = Survey
+    .StylesManager
+    .ThemeColors["default"];
+    defaultThemeColors["$main-hover-color"] = "#6fe06f";
+    defaultThemeColors["$main-color"] = "rgba(0, 0, 0, 0.2)";
+    defaultThemeColors["$text-color"] = "#4a4a4a";
+    defaultThemeColors["$header-color"] = "#7ff07f";
+
+    defaultThemeColors["$header-background-color"] = "#4a4a4a";
+    defaultThemeColors["$body-container-background-color"] = "#f8f8f8";
+
+
+Survey
+    .StylesManager
+    .applyTheme();
+
+var myCss = {
+    matrix: {
+        root: "table table-striped"
+    },
+    navigationButton: "button btn-small grey darken-4"
+};
 class QuestionPage extends Component {
     constructor(props) {
         super(props)
@@ -32,11 +54,12 @@ class QuestionPage extends Component {
 
     render() {
         var surveyRender = !this.state.isComplete ? (
-            <div>
+            <div className="floating-container floating-content z-depth-2">
                 <Survey.Survey
                     json={json}
                     showCompletedPage={false}
                     onComplete={this.onCompleteComponent}
+                    css={myCss}
                 />
             </div>
         ) : null
@@ -60,8 +83,8 @@ class QuestionPage extends Component {
                             Questions
                         </header>
                     </div>
-                    <div className="container content floating-container">
-                        <div className="floating-content">
+                    <div className="container">
+                        <div>
                             {surveyRender}
                             {onSurveyCompletion}
                         </div>

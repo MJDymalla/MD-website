@@ -23,10 +23,10 @@ class Navigation extends Component {
         return (
           <div>
             <nav>
-              <div className="nav-wrapper">
-                <a className="nav-head"> MASS DIPLOMACY </a>
+              <div className="nav-wrapper z-depth-2">
+                <a className="nav-head" href="#!"> MASS DIPLOMACY </a>
 
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                <a href="#!" data-target="mobile-demo" class="sidenav-trigger">
                   <i className="medium material-icons icon-color">menu</i>
                 </a>
                 <ul id="nav-mobile" className="right hide-on-med-and-down">

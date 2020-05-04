@@ -37,7 +37,9 @@ class LandingPage extends Component {
                         }}
                         className="parallax"
                     >
-                        <div className="landing-image" ><img src={Image2} className="bg2"/></div>
+                        <div className="landing-image">
+                            <img src={Image2} alt="#!"/>
+                        </div>
                     </div>
                 </div>
 
@@ -91,7 +93,9 @@ class LandingPage extends Component {
                         }}
                         className="parallax"
                     >
-                        <div className="bg1"><img src={Image1}/></div>
+                        <div className="bg1">
+                            <img src={Image1} alt="#!"/>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -11,14 +11,15 @@ class HeaderBox extends Component {
         return (
             <div className="header-img-height">
                 <div className="parallax-container header-img-container">
-
                     <div
                         ref={Parallax => {
                             this.Parallax1 = Parallax;
                         }}
                         className="parallax"
                     >
-                        <div><img src={header_image}/></div>
+                        <div>
+                            <img src={header_image} alt=""/>
+                        </div>
                     </div>
                 </div>
             </div>
