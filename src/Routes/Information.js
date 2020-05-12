@@ -51,46 +51,45 @@ class AboutUs extends Component {
 
                         <div className="floating-container z-depth-2">
                             <div className="floating-content row">
-                                <div className="flow-text">
+                                <div className="flow-text grey-text text-darken-2">
                                     <img src={about} className="about_images left hide-on-small-only" alt=""/>
 
-                                    <h4 className="grey-text text-darken-2">
-                                        What's the mindset about
-                                    </h4>
+                                    <h4>About the Entrepreneurial Mindset Activity Profile</h4>
 
-                                    <div className="grey-text text-darken-2">
-                                        An entrepreneurial mindset is about a certain way of thinking, it is about the way in which you approach challenges and mistakes.
-                                        It is about an inherent need to learn from failures, improve your skill set and to try and try again.
-                                        <p>We believe by making an active effort to improve and embody this mindset, you position yourself to meet everyday challenges and experience major growth
-                                            both personally and professionally.</p>
-                                    </div>
+                                    <p>If you’re thinking of running your own business, want to know how you can develop yourself or others in being more entrepreneurial,
+                                    or looking to create a team with certain abilities/profiles, measuring your entrepreneurial mindset profile provides the context in
+                                    which you can evaluate where you are and how/where you can work on personal and professional development.</p>
+
+                                    <p>Having an entrepreneurial mindset
+                                    is essential to innovation, disciplined entrepreneurship and your personal and professional development.</p>
+
+                                    <p>The Entrepreneurial Mindset Activity Profile <i>(EMAP)</i> is an assessment tool that utilises established scales, accepted by way of up to 20 years
+                                    of peer-to-peer research review and scale development. The EMAP helps you in industry, university and startup land to evaluate the degree to
+                                    which you are utilizing an entrepreneurial mindset and provides the context in which you might develop it further.</p>
+
+                                    <p>The EMAP was developed by Graham Fellows <i>(Queensland Unversity of Technology Entrepreneurship, Mass Diplomacy)</i> with QUT Information Technology graduate students
+                                    India Goodrich, Markus Dymalla, Kayleigh Beahan, & Jack McSweeney.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div className="floating-container z-depth-2">
                             <div className="floating-content row">
-                                <div className="flow-text">
-                                    <img src={mindset} className="about_images right hide-on-small-only" alt=""/>
+                                <div className="flow-text grey-text text-darken-2">
+                                    <h4>About the author</h4>
 
-                                    <h4 className="grey-text text-darken-2">
-                                        What's the profile about
-                                    </h4>
+                                    <p>Graham works with the Executive Director, QUT Entrepreneurship, the hub for entrepreneurship at QUT with spaces at Gardens Point,
+                                    The Precinct and Kelvin Grove. Graham manages the QUT foundries, programs and operations, and teaches Entrepreneurship within the
+                                    QUT Graduate School of Business D/MBA Programs.</p>
 
-                                    <div className="grey-text text-darken-2">
-                                        The Mass Diplomacy Mindset Profile was created using questions based on psychological research that aim to gain insight into particular traits an individual may have.
-                                    </div>
+                                    <p>He started his career in community and international relations and then started his own business, trading cultural artefacts, jewellery,
+                                    textiles, interior design and indigenous products. His most recent ventures are QUOD Architecture <i>(architectural design services)</i>, Mass Diplomacy
+                                    <i> (corporate innovation programs and platforms)</i> and Simul <i>(a collaborative design platform for creative industries)</i>.</p>
 
-                                    <div className="grey-text text-darken-1">
-                                        <blockquote className="about-block">
-                                            <i>We aimed the Mindset Profile at not only discovering your current level of entrepreneurial thinking, but to also guide you in further developing and improving it.</i>
-                                        </blockquote>
-                                    </div>
-
-                                    <div className="grey-text text-darken-2">
-                                        An important part of any educational tool is being able to visibly see and gauge improvement. The Mindset Profile is designed to be taken numerous times,
-                                        so that the individual can see at each step of the process how there mindset and ways of thinking are progressing.
-                                    </div>
+                                    <p>Graham’s research focuses on individual differences, entrepreneurial mindset and cognitive flexibility
+                                    within entrepreneurs. Graham’s research focuses on entrepreneurial mindset: his current study investigates entrepreneurial mindset and
+                                    cognitive flexibility within entrepreneurs in behavioural experiments that include psychometric testing and distributed brain region activation
+                                    by way of electroencephalogram (EEG).</p>
                                 </div>
                             </div>
                         </div>

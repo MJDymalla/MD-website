@@ -50,6 +50,7 @@ class QuestionPage extends Component {
         database.ref(`users/${this.props.users.id}/info/entrepreneurScore`).update({
           entrepreneurScore: scoreE
         });
+        console.log(res.data);
     }
 
     render() {

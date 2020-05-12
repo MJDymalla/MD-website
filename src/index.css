@@ -35,6 +35,14 @@ hr.style {
   width: 60%;
 }
 
+input {
+  position: relative !important;
+}
+
+label {
+  position: relative !important;
+}
+
 .content {
   padding-top: 10px;
 }
