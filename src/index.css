@@ -14,7 +14,7 @@ html {
 }
 
 i.icon-color {
-  color: #66FCF1;
+  color: rgb(100, 252, 242);
 }
 
 .btn-small {
@@ -41,6 +41,13 @@ input {
 
 label {
   position: relative !important;
+}
+.table-striped {
+  font-size: 12px;
+}
+.sv_q tr th {
+  min-width: 20px;
+  width: 8%;
 }
 
 .content {
@@ -243,6 +250,23 @@ h4 {
 
 .alert {
   margin-top: 20px;
+  color: rgba(0, 0, 0, 0.74);
+  color: rgba(100, 252, 242, 0.74);
+  color: rgba(32, 32, 32, 0.5);
+  color: rgba(20, 40, 105, 0.7);
+}
+
+.progress {
+  width: 100% !important;
+  height: 20px !important;
+  background-color: white !important;
+  border: solid;
+  border-color: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  border-width: 1px;
+}
+.determinate {
+  background-color: rgba(0, 0, 0, 0.8) !important;
 }
 
 .typewriter h1 {
@@ -267,3 +291,5 @@ h4 {
   from, to { border-color: transparent }
   50% { border-color: orange; }
 }
+
+

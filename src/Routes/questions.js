@@ -10,6 +10,7 @@ import { surveyResult } from '../Actions/surveyAction';
 import { scoreUser } from '../Actions/userActions';
 import database from "../firebase/firebase";
 import HeaderBox from '../Components/HeaderBox';
+import filterResults from '../filterResults';
 
 var defaultThemeColors = Survey
     .StylesManager
@@ -44,13 +45,13 @@ class QuestionPage extends Component {
         this.setState({
             isComplete: true
         });
-        const scoreE = res.data;
-        this.props.surveyResult(res.data);
-        this.props.scoreUser(scoreE);
-        database.ref(`users/${this.props.users.id}/info/entrepreneurScore`).update({
-          entrepreneurScore: scoreE
-        });
-        console.log(res.data);
+        const final_results = filterResults(res.data);
+        this.props.surveyResult(final_results);
+
+        //database.ref(`users/${this.props.users.id}/info/entrepreneurScore`).update({
+        //  entrepreneurScore: scoreE
+        //});
+        console.log(final_results);
     }
 
     render() {
