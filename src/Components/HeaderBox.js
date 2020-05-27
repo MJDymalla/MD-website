@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+
 import M from 'materialize-css';
 import header_image from '../Images/header_image.jpg';
 
@@ -6,7 +7,6 @@ class HeaderBox extends Component {
     componentDidMount() {
         M.Parallax.init(this.Parallax1);
     }
-
     render() {
         return (
             <div className="header-img-height">

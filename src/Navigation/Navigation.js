@@ -1,29 +1,50 @@
+import "materialize-css/dist/css/materialize.min.css";
+
 import React, {Component} from 'react';
+
+import M from 'materialize-css';
+import { NavLink } from "react-router-dom";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { NavLink } from "react-router-dom";
-import {fakeAuth} from '../App.js'
-import "materialize-css/dist/css/materialize.min.css";
-import M from 'materialize-css';
+import {fakeAuth} from '../App.js';
 
 class Navigation extends Component {
+  constructor(props) {
+    super(props);
+    this.listener = null;
+    this.state = {
+      status: "top"
+    }
+  }
+
     componentDidMount() {
         M.AutoInit();
+        this.listener = document.addEventListener("scroll", e => {
+          var scrolled = document.scrollingElement.scrollTop;
+          if (scrolled >= 10) {
+            if (this.state.status !== "changed") {
+              this.setState({status: "changed"});
+            }
+          } else {
+            if (this.state.status !== "top") {
+              this.setState({ status: "top"});
+            }
+          }
+        });
     }
-    render()
-    {
-        var status = fakeAuth.isAuthenticated ? (
-            <i className="medium material-icons icon-color">lock_open</i>
-        ) : <i className="medium material-icons icon-color">lock</i>
 
-        var tip = fakeAuth.isAuthenticated ? (
-          "Authenticated"
-        ) : "Un-authenticated"
+    componentDidUpdate() {
+      document.removeEventListener("scroll", this.listener);
+    }
+
+    render() {
+        var status = fakeAuth.isAuthenticated ? null : <i className="medium material-icons white-icon">lock</i>
+        var tip = fakeAuth.isAuthenticated ? "Authenticated" : "Un-authenticated"
 
         return (
           <div>
-            <nav>
-              <div className="nav-wrapper z-depth-2">
+            <nav style={{backgroundColor: this.state.status === "top" ? "transparent" : "black"}}>
+              <div className="nav-wrapper">
                 <a className="nav-head" href="#!"> MASS DIPLOMACY </a>
 
                 <a href="#!" data-target="mobile-demo" class="sidenav-trigger">
@@ -35,7 +56,7 @@ class Navigation extends Component {
                     data-position="bottom"
                     data-tooltip={tip}
                   >
-                    {status}
+                    <span className="badge">{status}</span>
                   </li>
                   <li>
                     <NavLink
@@ -43,7 +64,7 @@ class Navigation extends Component {
                       activeClassName="active"
                       className="nav-link"
                     >
-                      USER
+                      <i className="medium material-icons">account_circle</i>
                     </NavLink>
                   </li>
                   <li>
@@ -52,7 +73,7 @@ class Navigation extends Component {
                       activeClassName="active"
                       className="nav-link"
                     >
-                      ABOUT
+                      <i className="medium material-icons">info</i>
                     </NavLink>
                   </li>
                   <li>
@@ -61,16 +82,7 @@ class Navigation extends Component {
                       activeClassName="active"
                       className="nav-link"
                     >
-                      SURVEY
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink
-                      to="/results"
-                      activeClassName="active"
-                      className="nav-link"
-                    >
-                      RESULTS
+                      <i className="medium material-icons">equalizer</i>
                     </NavLink>
                   </li>
                 </ul>
@@ -100,18 +112,6 @@ class Navigation extends Component {
                 >
                   SURVEY
                 </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/results"
-                  activeClassName="active"
-                  className="nav-link"
-                >
-                  RESULTS
-                </NavLink>
-              </li>
-              <li>
-                  {status}
               </li>
             </ul>
             <br />

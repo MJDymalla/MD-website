@@ -1,19 +1,15 @@
 import React, { Component } from 'react';
-import Navigation from '../Navigation/Navigation.js';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import HeaderBox from '../Components/HeaderBox';
-// Results page images
-import Undraw1 from "../Images/undraw_message_sent_1030.png";
-import Undraw2 from '../Images/undraw_progress_data_4ebj.png';
-import ResultsView from '../Components/ResultsView';
 
+import HeaderBox from '../Components/HeaderBox';
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
+import ResultsView from '../Components/ResultsView';
+import { connect } from 'react-redux';
 
 class Results extends Component {
   render() {
     return (
       <div>
-        <Navigation />
         <HeaderBox />
         <div className="origin">
           <div className="center header-position">
@@ -23,8 +19,8 @@ class Results extends Component {
             </header>
           </div>
 
-          <div className="container center content">
-            <ResultsView/>
+          <div className="container content">
+            {this.props.results.motivation !== undefined ? <ResultsView/> : <Redirect to='/survey'/>}
           </div>
         </div>
       </div>

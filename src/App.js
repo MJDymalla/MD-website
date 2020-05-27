@@ -1,22 +1,25 @@
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import React, { Component } from 'react';
 import {
-    BrowserRouter as Router,
+    Redirect,
     Route,
-    Switch,
-    Redirect
+    BrowserRouter as Router,
+    Switch
 } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from './store.js';
-import database from './firebase/firebase';
-// PAGES
-import MainPage from './index.js';
-import Login from './Routes/user.js';
-import errorPage from './Routes/ErrorPage.js';
-import surveyPage from './Routes/survey.js';
-import QuestionPage from './Routes/questions.js';
-import Results from './Routes/Results.js';
-import AboutUs from './Routes/Information.js';
+
+import AboutUs from './Routes/AboutUs';
 import Footer from './Navigation/Footer';
+import Login from './Routes/Login';
+import MainPage from './index.js';
+import Navigation from './Navigation/Navigation.js';
+import { Provider } from 'react-redux';
+import Questions from './Routes/Questions';
+import Results from './Routes/Results';
+import ScrollToTop from './Components/ScrollToTop';
+import Survey from './Routes/Survey';
+import database from './firebase/firebase';
+import errorPage from './Routes/ErrorPage';
+import store from './store.js';
 
 // AUTHENTICATION CHECK
 export const fakeAuth = {
@@ -44,8 +47,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     )} />
 )
 
-//put info into db
-
 // fetch request check console for what comes back
 database.ref().once('value').then((snapshot) => {
     const val = snapshot.val();
@@ -57,19 +58,22 @@ class App extends Component {
         return (
             <Provider store={store}>
                 <Router className="router">
+                    <Navigation/>
+                    <ScrollToTop />
                     <Switch>
                         <Route exact path="/404" component={errorPage} />
                         <Route exact path="/" component={MainPage} />
                         <Route exact path="/login" component={Login} />
                         <Route exact path="/information" component={AboutUs} />
-                        <Route path="/survey" component={surveyPage} />
-                        <Route path="/questions" component={QuestionPage} />
-                        <Route path="/results" component={Results} />
+                        <PrivateRoute path="/survey" component={Survey} />
+                        <PrivateRoute path="/questions" component={Questions} />
+                        <PrivateRoute path="/results" component={Results} />
                         <Redirect to='/404' />
                     </Switch>
                 </Router>
-                <Footer/>
+                <Footer />
             </Provider>
+
         );
     }
 }
