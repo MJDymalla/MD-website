@@ -9,6 +9,7 @@ import database from "../firebase/firebase";
 import { fakeAuth } from '../App.js'
 import locked from '../Images/login.png';
 import { logUser } from '../Actions/userActions';
+import { motion } from 'framer-motion';
 
 class Login extends Component {
     // SET AUTHENTICATED TO TRUE - trigger redux action (save users name)
@@ -54,10 +55,24 @@ class Login extends Component {
                 M.toast({html: "You need to log in to do that", displayLength: 1500});
             }
         }
-
     }
 
+
     render() {
+        const container = {
+            hidden: { opacity: 1, scale: 0.5 },
+            visible: {
+                opacity: 1,
+                scale: 1,
+                transition: {
+                    type: "tween",
+                    delay: 0,
+                    when: "beforeChildren",
+                    staggerChildren: 0.1
+                }
+            }
+        };
+
         var logged_in = fakeAuth.isAuthenticated ? (
             <div>
                 <div className="row">
@@ -171,10 +186,8 @@ class Login extends Component {
             <div>
                 <div className="row valign-wrapper">
                     <div className="col s6">
-                        <p>
-                            Welcome to Mass Diplomacy's Mindset Profile, <br /> During this development phase
-                            we kindly ask that you login using a valid Google account for secure authentication.
-                        </p>
+                        <p>Welcome to Mass Diplomacy's Mindset Activity Profile, <br /> During this development phase
+                        we kindly ask that you login using a valid Google account for secure authentication.</p>
 
                         <i class="fab fa-google fa-lg" />
                         <hr className="style" />
@@ -217,9 +230,11 @@ class Login extends Component {
                             Account
                         </header>
                     </div>
-                    <div className="center container floating-container floating-content flow-text z-depth-2">
-                        {logged_in}
-                    </div>
+                    <motion.div variants={container} initial="hidden" animate="visible">
+                        <div className="center container floating-container floating-content flow-text z-depth-2">
+                            {logged_in}
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         )

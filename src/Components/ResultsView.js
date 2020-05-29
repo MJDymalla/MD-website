@@ -102,10 +102,26 @@ class ResultsView extends Component {
         var amount = (props / max) * 100;
         return amount;
     }
-    total_motivation = this.props.results.motivation.intrinsic + this.props.results.motivation.introjected + this.props.results.motivation.identified + this.props.results.motivation.external_motivation;
-    total_passion = this.props.results.passion.inventing + this.props.results.passion.founding + this.props.results.passion.developing;
-    total_effort = this.props.results.effort.immediate + this.props.results.effort.beyond + this.props.results.effort.develop;
-    total_orientation = this.props.results.orientation.risk_taking + this.props.results.orientation.innovativeness + this.props.results.orientation.proactivity;
+    total_motivation =
+    this.props.results.motivation.intrinsic +
+    this.props.results.motivation.introjected +
+    this.props.results.motivation.identified +
+    this.props.results.motivation.external_motivation;
+
+    total_passion =
+    this.props.results.passion.inventing +
+    this.props.results.passion.founding +
+    this.props.results.passion.developing;
+
+    total_effort =
+    this.props.results.effort.immediate +
+    this.props.results.effort.beyond +
+    this.props.results.effort.develop;
+
+    total_orientation =
+    this.props.results.orientation.risk_taking +
+    this.props.results.orientation.innovativeness +
+    this.props.results.orientation.proactivity;
 
     componentDidMount() {
         M.AutoInit();
@@ -118,161 +134,228 @@ class ResultsView extends Component {
                     <div className="floating-content flow-text">
                         <h4 className="grey-text text-darken-2 center">Personality Breakdown</h4>
                         <p className="center grey-text text-darken-1">
-                            <i>The answers you provided are measured against qualities that we believe are important to being
-                                an entrepreneur. The following list outlines areas that stood out among your answers. To get
-                                a more detailed explanation simply click the area highlighted to expand the description.</i>
+                            <i>The answers you provided are measured against qualities that we believe are important to
+                            being an entrepreneur. The following list outlines areas that stood out among your answers.
+                            To get a more detailed explanation simply click the area highlighted to expand the
+                            description.</i>
                         </p>
                         <ul className="collapsible popout">
                             {this.props.results.motivation.intrinsic > 12 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>High level of intrinsic motivation</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        High level of intrinsic motivation
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.high_intrinsic}</span></div>
                                 </li>
                                 : null
                             }
                             {this.props.results.motivation.identified > 12 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>High level of identified motivation</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        High level of identified motivation
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.high_identified}</span></div>
                                 </li>
                                 : null
                             }
                             {this.props.results.motivation.introjected > 12 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>High level of introjected motivation</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        High level of introjected motivation
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.high_introjected}</span></div>
                                 </li>
                                 : null
                             }
                             {this.props.results.motivation.external_motivation > 12 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>High level of external motivation</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        High level of external motivation
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.high_external}</span></div>
                                 </li>
                                 : null
                             }
                             {this.props.results.passion.inventing > 16 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>High level of passion for inventing</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        High level of passion for inventing
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.high_inventing}</span></div>
                                 </li>
                                 : null
                             }
                             {this.props.results.passion.founding > 16 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>High level of passion for founding</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        High level of passion for founding
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.high_founding}</span></div>
                                 </li>
                                 : null
                             }
                             {this.props.results.passion.developing > 16 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>High level of passion for developing</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        High level of passion for developing
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.high_developing}</span></div>
                                 </li>
                                 : null
                             }
                             {this.state.growth_percentage > 60 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>High level of growth orientation</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        High level of growth orientation
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.high_growth}</span></div>
                                 </li>
                                 : null
                             }
                             {this.state.growth_percentage <= 50 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>Low level of growth orientation</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        Low level of growth orientation
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.low_growth}</span></div>
                                 </li>
                                 : null
                             }
                             {this.props.results.orientation.risk_taking > 12 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>High level of risk tolerance</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        High level of risk tolerance
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.high_risk_acceptance}</span></div>
                                 </li>
                                 : null
                             }
                             {this.props.results.orientation.innovativeness > 12 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>High level of innovativeness</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        High level of innovativeness
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.high_innovativeness}</span></div>
                                 </li>
                                 : null
                             }
                             {this.props.results.orientation.proactivity > 12 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>High level of proactivity</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        High level of proactivity
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.high_proactivity}</span></div>
                                 </li>
                                 : null
                             }
                             {this.state.efficacy_percentage >= 75 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>High level of entrepreneurial self-efficacy</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        High level of entrepreneurial self-efficacy
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.high_self_efficacy}</span></div>
                                 </li>
                                 : null
                             }
                             {this.state.efficacy_percentage <= 40 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>Low level of entrepreneurial self-efficacy</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        Low level of entrepreneurial self-efficacy
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.low_self_efficacy}</span></div>
                                 </li>
                                 : null
                             }
                             {this.state.need_to_achieve_percentage >= 75 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>High level of the need to achieve</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        High level of the need to achieve
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.high_need_to_achieve}</span></div>
                                 </li>
                                 : null
                             }
                             {this.state.need_to_achieve_percentage <= 40 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>Low level of the need to achieve</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        Low level of the need to achieve
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.low_need_to_achieve}</span></div>
                                 </li>
                                 : null
                             }
                             {this.state.grit_percentage >= 75 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>High level of grit</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        High level of grit
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.high_grit}</span></div>
                                 </li>
                                 : null
                             }
                             {this.state.grit_percentage <= 40 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>Low level of grit</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        Low level of grit
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.low_grit}</span></div>
                                 </li>
                                 : null
                             }
                             {this.state.tolerance_percentage >= 70 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>High level of tolerance to ambiguity</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        High level of tolerance to ambiguity
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.high_tolerance}</span></div>
                                 </li>
                                 : null
                             }
                             {this.state.tolerance_percentage <= 40 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>Low level of tolerance to ambiguity</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        Low level of tolerance to ambiguity
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.low_tolerance}</span></div>
                                 </li>
                                 : null
                             }
                             {this.state.resilience_percentage >= 70 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>High level of resilience</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        High level of resilience
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.high_resilience}</span></div>
                                 </li>
                                 : null
                             }
                             {this.state.resilience_percentage <= 40 ?
                                 <li>
-                                    <div className="collapsible-header"><i class="material-icons">arrow_drop_down</i>Low level of resilience</div>
+                                    <div className="collapsible-header">
+                                        <i class="material-icons">arrow_drop_down</i>
+                                        Low level of resilience
+                                    </div>
                                     <div className="collapsible-body"><span>{responses.low_resilience}</span></div>
                                 </li>
                                 : null
@@ -311,7 +394,8 @@ class ResultsView extends Component {
                         </div>
 
                         <div className="row">
-                            <p><i>The following factors are a measure of your total feeling towards certain entrepreneurial qualities.</i></p>
+                            <p><i>The following factors are a measure of your total feeling towards certain
+                                entrepreneurial qualities.</i></p>
 
                             <div className="col s4">
                                 <b>Growth</b>
@@ -407,8 +491,9 @@ class ResultsView extends Component {
                 <div className="floating-container z-depth-2 center">
                     <div className="floating-content flow-text">
                         <h4 className="grey-text text-darken-2">Overall representation</h4>
-                        <p><i>This chart displays your current level of measured entrepreneurial qualities together, this makes it far
-                            easier to see which areas are behind others and where your focus should be.</i></p>
+                        <p><i>This chart displays your current level of measured entrepreneurial qualities together,
+                            this makes it far easier to see which areas are behind others and where your focus
+                            should be.</i></p>
                         <Radar data={this.radar_chart(this.props.results)} options={this.options} />
                     </div>
                 </div>

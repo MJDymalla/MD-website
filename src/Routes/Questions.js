@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import database from "../firebase/firebase";
 import filterResults from '../filterResults';
 import json from '../JSONQuestions';
+import { motion } from 'framer-motion';
 import { scoreUser } from '../Actions/userActions';
 import { surveyResult } from '../Actions/surveyAction';
 

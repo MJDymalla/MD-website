@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 
 import AboutUs from './Routes/AboutUs';
+import { AnimatePresence } from 'framer-motion';
 import Footer from './Navigation/Footer';
 import Login from './Routes/Login';
 import MainPage from './index.js';
@@ -60,16 +61,18 @@ class App extends Component {
                 <Router className="router">
                     <Navigation/>
                     <ScrollToTop />
-                    <Switch>
-                        <Route exact path="/404" component={errorPage} />
-                        <Route exact path="/" component={MainPage} />
-                        <Route exact path="/login" component={Login} />
-                        <Route exact path="/information" component={AboutUs} />
-                        <PrivateRoute path="/survey" component={Survey} />
-                        <PrivateRoute path="/questions" component={Questions} />
-                        <PrivateRoute path="/results" component={Results} />
-                        <Redirect to='/404' />
-                    </Switch>
+                    <AnimatePresence>
+                        <Switch>
+                            <Route exact path="/404" component={errorPage} />
+                            <Route exact path="/" component={MainPage} />
+                            <Route exact path="/login" component={Login} />
+                            <Route exact path="/information" component={AboutUs} />
+                            <PrivateRoute path="/survey" component={Survey} />
+                            <PrivateRoute path="/questions" component={Questions} />
+                            <PrivateRoute path="/results" component={Results} />
+                            <Redirect to='/404' />
+                        </Switch>
+                    </AnimatePresence>
                 </Router>
                 <Footer />
             </Provider>

@@ -26,20 +26,31 @@ class index extends Component {
 
           <div className="col l4">
             <div className="landing-container hide-on-small-only">
-              <div className="landing-content white-text flow-text">
+              <div className="landing-content info-text flow-text">
                 <div className="info-padding">
-                  <span className="valign-wrapper"><i className="small material-icons icon-color">enhanced_encryption</i><h4> Secure</h4></span>
-                  <i>User information is kept secure and private. Any personal details that are provided will not be shared in any way.</i>
+                  <span className="valign-wrapper">
+                    <i className="small material-icons icon-color">enhanced_encryption</i>
+                    <h4> Secure</h4>
+                  </span>
+                  <i>User information is kept secure and private. Any personal details that are provided will
+                  not be shared in any way.</i>
                 </div>
 
                 <div className="info-padding">
-                  <span className="valign-wrapper"><i className="small material-icons icon-color">fingerprint</i><h4> Researched</h4></span>
+                  <span className="valign-wrapper">
+                    <i className="small material-icons icon-color">fingerprint</i>
+                    <h4> Researched</h4>
+                  </span>
                   <i>Profile was designed utilising years of peer to peer research review and scale develoment.</i>
                 </div>
 
                 <div className="info-padding">
-                  <span className="valign-wrapper"><i className="small material-icons icon-color">repeat</i><h4> Iterative</h4></span>
-                  <i>The EMAP was designed to encourage education and begin a process of continual improvement and self reflection.</i>
+                  <span className="valign-wrapper">
+                    <i className="small material-icons icon-color">repeat</i>
+                    <h4> Iterative</h4>
+                  </span>
+                  <i>The EMAP was designed to encourage education and begin a process of continual improvement and
+                  self reflection.</i>
                 </div>
               </div>
             </div>
