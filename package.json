@@ -53,5 +53,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-shallow-renderer": "^16.13.1",
+    "react-test-renderer": "^15.5.0"
   }
 }

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render header correctly 1`] = `
+<footer
+  className="footer page-footer"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row center"
+    >
+      <p>
+        © KIMJ Development
+      </p>
+    </div>
+  </div>
+</footer>
+`;

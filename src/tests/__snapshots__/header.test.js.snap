@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render header correctly 1`] = `
+<div
+  className="header-img-height"
+>
+  <div
+    className="parallax-container header-img-container"
+  >
+    <div
+      className="parallax"
+    >
+      <div>
+        <img
+          alt=""
+          src="header_image.jpg"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
