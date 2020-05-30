@@ -1,4 +1,3 @@
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import React, { Component } from 'react';
 import {
     Redirect,
@@ -76,7 +75,6 @@ class App extends Component {
                 </Router>
                 <Footer />
             </Provider>
-
         );
     }
 }

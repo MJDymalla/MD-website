@@ -67,33 +67,39 @@ function filterResults(results) {
       }
     }
     if (key.includes("efficacy")) {
-      for (let [a, v] of Object.entries(value)) {
-        filtered_results.self_efficacy += parseInt(v, 10);
+      let vals = Object.values(value);
+      for (let val of vals) {
+        filtered_results.self_efficacy += parseInt(val, 10);
       }
     }
     if (key.includes("need to achieve")) {
-      for (let [a, v] of Object.entries(value)) {
-        filtered_results.need_to_achieve += parseInt(v, 10);
+      let vals = Object.values(value);
+      for (let val of vals) {
+        filtered_results.need_to_achieve += parseInt(val, 10);
       }
     }
     if (key.includes("grit")) {
-      for (let [a, v] of Object.entries(value)) {
-        filtered_results.grit += parseInt(v, 10);
+      let vals = Object.values(value);
+      for (let val of vals) {
+        filtered_results.grit += parseInt(val, 10);
       }
     }
     if (key.includes("tolerance")) {
-      for (let [a, v] of Object.entries(value)) {
-        filtered_results.ambiguity_tolerance += parseInt(v, 10);
+      let vals = Object.values(value);
+      for (let val of vals) {
+        filtered_results.ambiguity_tolerance += parseInt(val, 10);
       }
     }
     if (key.includes("resilience")) {
-      for (let [a, v] of Object.entries(value)) {
-        filtered_results.resilience += parseInt(v, 10);
+      let vals = Object.values(value);
+      for (let val of vals) {
+        filtered_results.resilience += parseInt(val, 10);
       }
     }
     if (key.includes("satisfaction")) {
-      for (let [a, v] of Object.entries(value)) {
-        filtered_results.satisfaction += parseInt(v, 10);
+      let vals = Object.values(value);
+      for (let val of vals) {
+        filtered_results.satisfaction += parseInt(val, 10);
       }
     }
   }

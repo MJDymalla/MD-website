@@ -1,7 +1,7 @@
 import '../index.css';
 
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import React, { Component } from "react";
+import { container, item } from '../TransitionVariants';
 
 import FAQ from '../Images/faq.png';
 import HeaderBox from '../Components/HeaderBox';
@@ -13,20 +13,20 @@ class AboutUs extends Component {
     render() {
         return (
             <div>
-                <HeaderBox/>
+                <HeaderBox />
                 <div className="origin">
-                    <div className="header-position center">
+                    <motion.div className="center header-position" variants={container} initial="hidden" animate="visible">
                         <i className="medium material-icons icon-color">info</i>
                         <header className="pageHeaders white-text">
                             About
                         </header>
-                    </div>
+                    </motion.div>
 
-                    <div className="container">
-                        <div className="floating-container z-depth-2">
+                    <motion.div className="container" variants={container} initial="hidden" animate="visible">
+                        <motion.div className="floating-container z-depth-2" variants={item}>
                             <div className="floating-content row">
                                 <div className="flow-text">
-                                    <img src={FAQ} className="about_images right hide-on-small-only" alt=""/>
+                                    <img src={FAQ} className="about_images right hide-on-small-only" alt="" />
 
                                     <h4 className="grey-text text-darken-2">
                                         Who are we
@@ -51,12 +51,12 @@ class AboutUs extends Component {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
 
-                        <div className="floating-container z-depth-2">
+                        <motion.div className="floating-container z-depth-2" variants={item}>
                             <div className="floating-content row">
-                                <div className="flow-text grey-text text-darken-2">
-                                    <img src={about} className="about_images left hide-on-small-only" alt=""/>
+                                <div className="flow-text grey-text text-darken-2" >
+                                    <img src={about} className="about_images left hide-on-small-only" alt="" />
 
                                     <h4>The Entrepreneurial Mindset Activity Profile</h4>
 
@@ -81,11 +81,11 @@ class AboutUs extends Component {
                                     students: India Goodrich, Markus Dymalla, Kayleigh Beahan, &amp; Jack McSweeney.</p>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
 
-                        <div className="floating-container z-depth-2">
+                        <motion.div className="floating-container z-depth-2" variants={item}>
                             <div className="floating-content row">
-                                <div className="flow-text grey-text text-darken-2">
+                                <div className="flow-text">
                                     <h4>About the author</h4>
 
                                     <p>Graham works with the Executive Director, QUT Entrepreneurship, the hub for
@@ -108,8 +108,8 @@ class AboutUs extends Component {
                                     electroencephalogram (EEG).</p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </div>
         );

@@ -1,9 +1,11 @@
 import { Doughnut, Radar } from 'react-chartjs-2';
 import React, { Component } from "react";
+import { container, item } from '../TransitionVariants';
 
 import M from 'materialize-css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { motion } from 'framer-motion';
 import { responses } from '../Response.js';
 
 const motivation_max = 60;
@@ -26,13 +28,13 @@ class ResultsView extends Component {
             passion_percentage: this.percentage(this.total_passion, passion_max),
             effort_percentage: this.percentage(this.total_effort, effort_max),
             orientation_percentage: this.percentage(this.total_orientation, orientation_max),
-            growth_percentage: this.percentage(this.props.results.growth, growth_max),
-            efficacy_percentage: this.percentage(this.props.results.self_efficacy, efficacy_max),
-            need_to_achieve_percentage: this.percentage(this.props.results.need_to_achieve, achieve_max),
-            grit_percentage: this.percentage(this.props.results.grit, grit_max),
-            tolerance_percentage: this.percentage(this.props.results.ambiguity_tolerance, ambiguity_max),
-            resilience_percentage: this.percentage(this.props.results.resilience, resilience_max),
-            satisfaction_percentage: this.percentage(this.props.results.satisfaction, satisfaction_max)
+            growth_percentage: this.percentage(this.props.result_set.growth, growth_max),
+            efficacy_percentage: this.percentage(this.props.result_set.self_efficacy, efficacy_max),
+            need_to_achieve_percentage: this.percentage(this.props.result_set.need_to_achieve, achieve_max),
+            grit_percentage: this.percentage(this.props.result_set.grit, grit_max),
+            tolerance_percentage: this.percentage(this.props.result_set.ambiguity_tolerance, ambiguity_max),
+            resilience_percentage: this.percentage(this.props.result_set.resilience, resilience_max),
+            satisfaction_percentage: this.percentage(this.props.result_set.satisfaction, satisfaction_max)
         }
     }
 
@@ -100,28 +102,28 @@ class ResultsView extends Component {
     // percent format
     percentage(props, max) {
         var amount = (props / max) * 100;
-        return amount;
+        return Math.round(amount);
     }
     total_motivation =
-    this.props.results.motivation.intrinsic +
-    this.props.results.motivation.introjected +
-    this.props.results.motivation.identified +
-    this.props.results.motivation.external_motivation;
+    this.props.result_set.motivation.intrinsic +
+    this.props.result_set.motivation.introjected +
+    this.props.result_set.motivation.identified +
+    this.props.result_set.motivation.external_motivation;
 
     total_passion =
-    this.props.results.passion.inventing +
-    this.props.results.passion.founding +
-    this.props.results.passion.developing;
+    this.props.result_set.passion.inventing +
+    this.props.result_set.passion.founding +
+    this.props.result_set.passion.developing;
 
     total_effort =
-    this.props.results.effort.immediate +
-    this.props.results.effort.beyond +
-    this.props.results.effort.develop;
+    this.props.result_set.effort.immediate +
+    this.props.result_set.effort.beyond +
+    this.props.result_set.effort.develop;
 
     total_orientation =
-    this.props.results.orientation.risk_taking +
-    this.props.results.orientation.innovativeness +
-    this.props.results.orientation.proactivity;
+    this.props.result_set.orientation.risk_taking +
+    this.props.result_set.orientation.innovativeness +
+    this.props.result_set.orientation.proactivity;
 
     componentDidMount() {
         M.AutoInit();
@@ -129,8 +131,8 @@ class ResultsView extends Component {
 
     render() {
         return (
-            <div>
-                <div className="floating-container z-depth-2">
+            <motion.div variants={container} initial="hidden" animate="visible">
+                <motion.div className="floating-container z-depth-2" variants={item}>
                     <div className="floating-content flow-text">
                         <h4 className="grey-text text-darken-2 center">Personality Breakdown</h4>
                         <p className="center grey-text text-darken-1">
@@ -140,7 +142,7 @@ class ResultsView extends Component {
                             description.</i>
                         </p>
                         <ul className="collapsible popout">
-                            {this.props.results.motivation.intrinsic > 12 ?
+                            {this.props.result_set.motivation.intrinsic > 12 ?
                                 <li>
                                     <div className="collapsible-header">
                                         <i class="material-icons">arrow_drop_down</i>
@@ -150,7 +152,7 @@ class ResultsView extends Component {
                                 </li>
                                 : null
                             }
-                            {this.props.results.motivation.identified > 12 ?
+                            {this.props.result_set.motivation.identified > 12 ?
                                 <li>
                                     <div className="collapsible-header">
                                         <i class="material-icons">arrow_drop_down</i>
@@ -160,7 +162,7 @@ class ResultsView extends Component {
                                 </li>
                                 : null
                             }
-                            {this.props.results.motivation.introjected > 12 ?
+                            {this.props.result_set.motivation.introjected > 12 ?
                                 <li>
                                     <div className="collapsible-header">
                                         <i class="material-icons">arrow_drop_down</i>
@@ -170,7 +172,7 @@ class ResultsView extends Component {
                                 </li>
                                 : null
                             }
-                            {this.props.results.motivation.external_motivation > 12 ?
+                            {this.props.result_set.motivation.external_motivation > 12 ?
                                 <li>
                                     <div className="collapsible-header">
                                         <i class="material-icons">arrow_drop_down</i>
@@ -180,7 +182,7 @@ class ResultsView extends Component {
                                 </li>
                                 : null
                             }
-                            {this.props.results.passion.inventing > 16 ?
+                            {this.props.result_set.passion.inventing > 16 ?
                                 <li>
                                     <div className="collapsible-header">
                                         <i class="material-icons">arrow_drop_down</i>
@@ -190,7 +192,7 @@ class ResultsView extends Component {
                                 </li>
                                 : null
                             }
-                            {this.props.results.passion.founding > 16 ?
+                            {this.props.result_set.passion.founding > 16 ?
                                 <li>
                                     <div className="collapsible-header">
                                         <i class="material-icons">arrow_drop_down</i>
@@ -200,7 +202,7 @@ class ResultsView extends Component {
                                 </li>
                                 : null
                             }
-                            {this.props.results.passion.developing > 16 ?
+                            {this.props.result_set.passion.developing > 16 ?
                                 <li>
                                     <div className="collapsible-header">
                                         <i class="material-icons">arrow_drop_down</i>
@@ -230,7 +232,7 @@ class ResultsView extends Component {
                                 </li>
                                 : null
                             }
-                            {this.props.results.orientation.risk_taking > 12 ?
+                            {this.props.result_set.orientation.risk_taking > 12 ?
                                 <li>
                                     <div className="collapsible-header">
                                         <i class="material-icons">arrow_drop_down</i>
@@ -240,7 +242,7 @@ class ResultsView extends Component {
                                 </li>
                                 : null
                             }
-                            {this.props.results.orientation.innovativeness > 12 ?
+                            {this.props.result_set.orientation.innovativeness > 12 ?
                                 <li>
                                     <div className="collapsible-header">
                                         <i class="material-icons">arrow_drop_down</i>
@@ -250,7 +252,7 @@ class ResultsView extends Component {
                                 </li>
                                 : null
                             }
-                            {this.props.results.orientation.proactivity > 12 ?
+                            {this.props.result_set.orientation.proactivity > 12 ?
                                 <li>
                                     <div className="collapsible-header">
                                         <i class="material-icons">arrow_drop_down</i>
@@ -362,10 +364,10 @@ class ResultsView extends Component {
                             }
                         </ul>
                     </div>
-                </div>
+                </motion.div>
 
-                <div className="floating-container z-depth-2">
-                    <div className="floating-content center flow-text">
+                <motion.div className="floating-container z-depth-2" variants={item}>
+                    <div className="floating-content center flow-text" >
                         <h4 className="grey-text text-darken-2">Graphical Breakdown</h4>
 
                         <p><i>This section provides a visual breakdown of all factors measured.</i></p>
@@ -373,29 +375,29 @@ class ResultsView extends Component {
                         <div className="row">
                             <div className="col s6">
                                 <b>Motivation</b>
-                                <Doughnut data={this.chart_data(this.props.results.motivation)} />
+                                <Doughnut data={this.chart_data(this.props.result_set.motivation)} />
                             </div>
 
                             <div className="col s6">
                                 <b>Passion</b>
-                                <Doughnut data={this.chart_data(this.props.results.passion)} />
+                                <Doughnut data={this.chart_data(this.props.result_set.passion)} />
                             </div>
                         </div>
                         <div className="row">
                             <div className="col s6">
                                 <b>Effort</b>
-                                <Doughnut data={this.chart_data(this.props.results.effort)} />
+                                <Doughnut data={this.chart_data(this.props.result_set.effort)} />
                             </div>
 
                             <div className="col s6">
                                 <b>Entrepreneurial Orientation</b>
-                                <Doughnut data={this.chart_data(this.props.results.orientation)} />
+                                <Doughnut data={this.chart_data(this.props.result_set.orientation)} />
                             </div>
                         </div>
 
                         <div className="row">
                             <p><i>The following factors are a measure of your total feeling towards certain
-                                entrepreneurial qualities.</i></p>
+                            entrepreneurial qualities.</i></p>
 
                             <div className="col s4">
                                 <b>Growth</b>
@@ -486,28 +488,26 @@ class ResultsView extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
-                <div className="floating-container z-depth-2 center">
+                <motion.div className="floating-container z-depth-2 center" variants={item}>
                     <div className="floating-content flow-text">
                         <h4 className="grey-text text-darken-2">Overall representation</h4>
                         <p><i>This chart displays your current level of measured entrepreneurial qualities together,
-                            this makes it far easier to see which areas are behind others and where your focus
-                            should be.</i></p>
-                        <Radar data={this.radar_chart(this.props.results)} options={this.options} />
+                        this makes it far easier to see which areas are behind others and where your focus
+                        should be.</i></p>
+                        <Radar data={this.radar_chart(this.props.result_set)} options={this.options} />
                     </div>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
         )
     }
 }
 ResultsView.propTypes = {
-    results: PropTypes.object,
     users: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-    results: state.surveydata.survey_data,
     users: state.currentuser.user
 });
 export default connect(mapStateToProps, {})(ResultsView);

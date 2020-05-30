@@ -93,7 +93,7 @@ class Navigation extends Component {
           <li>
             <NavLink to="/login" className="nav-link">
               USER
-                </NavLink>
+            </NavLink>
           </li>
           <li>
             <NavLink
@@ -102,7 +102,7 @@ class Navigation extends Component {
               className="nav-link"
             >
               ABOUT
-                </NavLink>
+            </NavLink>
           </li>
           <li>
             <NavLink
@@ -111,7 +111,7 @@ class Navigation extends Component {
               className="nav-link"
             >
               SURVEY
-                </NavLink>
+            </NavLink>
           </li>
         </ul>
         <br />

@@ -9,12 +9,3 @@ export const logUser = (userData) => dispatch => {
 
 
 }
-
-export const scoreUser = (score) => dispatch => {
-    dispatch({
-        type: 'SCORE_USER',
-        payload: score
-    });
-
-
-}

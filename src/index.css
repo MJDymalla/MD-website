@@ -21,11 +21,30 @@ i.white-icon {
   color: white;
 }
 
+a {
+  outline: 0 !important;
+}
+
 .btn-small {
   font-family: 'Montserrat', sans-serif !important;
   letter-spacing: 2px !important;
   font-weight: 600 !important;
   border-radius: 2rem !important;
+  background-color: #212121 !important;
+  transition: .20s ease !important;
+}
+.btn-small:hover {
+  background-color: #0e0d0dc0 !important;
+}
+.btn-floating {
+  margin: 10rem 0 !important;
+}
+.btn-large {
+  background-color: #212121 !important;
+  transition: .20s ease !important;
+}
+.btn-large:hover {
+  background-color: #0e0d0dc0 !important;
 }
 
 img {
@@ -66,8 +85,8 @@ hr.style {
 }
 .parallax-container {
   height: calc(100vh - 80px)!important;
-  background-color: rgba(0,0,0,0.7);
-  margin-top: -22px;
+  background-color: rgba(0,0,0,0.65);
+  margin-top: -23px;
 }
 .info-text {
   color: rgba(255, 255, 255, 0.719);
@@ -208,6 +227,7 @@ h4 {
 /* SURVEY STYLES */
 input {
   position: relative !important;
+  outline: 0 !important;
 }
 label {
   position: relative !important;

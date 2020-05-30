@@ -3,6 +3,7 @@ import "survey-react/survey.css";
 import * as Survey from "survey-react";
 
 import React, { Component } from 'react';
+import { container, item } from '../TransitionVariants';
 
 import HeaderBox from '../Components/HeaderBox';
 import { Link } from 'react-router-dom';
@@ -13,7 +14,6 @@ import database from "../firebase/firebase";
 import filterResults from '../filterResults';
 import json from '../JSONQuestions';
 import { motion } from 'framer-motion';
-import { scoreUser } from '../Actions/userActions';
 import { surveyResult } from '../Actions/surveyAction';
 
 var defaultThemeColors = Survey
@@ -27,11 +27,12 @@ var defaultThemeColors = Survey
     defaultThemeColors["$body-container-background-color"] = "#f8f8f8";
 Survey.StylesManager.applyTheme();
 
+
 var myCss = {
     matrix: {
         root: "table table-striped"
     },
-    navigationButton: "btn-small grey darken-4",
+    navigationButton: "btn-small waves-effect waves-light",
 }
 
 class Questions extends Component {
@@ -41,15 +42,16 @@ class Questions extends Component {
         this.onCompleteComponent = this.onCompleteComponent.bind(this)
     }
 
-    onCompleteComponent = (res, state) => {
+    onCompleteComponent = (res) => {
+        var moment = require('moment');
+        var now = moment().format("dddd, MMMM Do YYYY, h:mm a");
         this.setState({ isComplete: true });
         const final_results = filterResults(res.data);
         this.props.surveyResult(final_results);
 
-        //database.ref(`users/${this.props.users.id}/info/entrepreneurScore`).update({
-        //  entrepreneurScore: scoreE
-        //});
-        console.log(final_results);
+        database.ref(`users/${this.props.users.id}/result_sets`).update({
+            [now]: final_results
+        });
     }
 
     render() {
@@ -59,14 +61,14 @@ class Questions extends Component {
                 <div className="origin">
                     {!this.state.isComplete ?
                         <div>
-                            <div className="center header-position">
+                            <motion.div className="center header-position" variants={container} initial="hidden" animate="visible">
                                 <i className="medium material-icons icon-color">visibility</i>
                                 <header className="pageHeaders white-text">
                                     Questions
                                 </header>
-                            </div>
-                            <div className="container">
-                                <div className="floating-container z-depth-2">
+                            </motion.div>
+                            <motion.div className="container" variants={container} initial="hidden" animate="visible">
+                                <motion.div className="floating-container z-depth-2" variants={item}>
                                     <div className="floating-content">
                                         <Survey.Survey
                                             json={json}
@@ -76,25 +78,25 @@ class Questions extends Component {
                                             showProgressBar='top'
                                         />
                                     </div>
-                                </div>
-                            </div>
+                                </motion.div>
+                            </motion.div>
                         </div>
                         :
                         <div>
-                            <div className="center header-position">
+                            <motion.div className="center header-position" variants={container} initial="hidden" animate="visible">
                                 <i className="medium material-icons icon-color">assignment_turned_in</i>
                                 <header className="pageHeaders white-text">
                                     Complete
                                 </header>
-                            </div>
-                            <div className="container center floating-container z-depth-2">
-                                <div className="floating-content flow-text">
+                            </motion.div>
+                            <motion.div className="container center floating-container z-depth-2" variants={container} initial="hidden" animate="visible">
+                                <motion.div className="floating-content flow-text" variants={item}>
                                     <div>Thank you for completing the Entrepreneurial Minset Activity Profile</div>
                                     <img className="survey_img" src={complete} alt="" />
                                     <p><i>Click below to view your results</i></p><hr className="style"/>
-                                    <Link to="/results"><button className="btn-small waves-effect waves-light grey darken-4">RESULTS</button></Link>
-                                </div>
-                            </div>
+                                    <Link to="/results"><button className="btn-small waves-effect waves-light">RESULTS</button></Link>
+                                </motion.div>
+                            </motion.div>
                         </div>
                     }
                 </div>
@@ -105,9 +107,7 @@ class Questions extends Component {
 
 Questions.propTypes = {
     surveyResult: PropTypes.func.isRequired,
-    scoreUser: PropTypes.func.isRequired,
-    survey_data: PropTypes.object,
-    score_num: PropTypes.object
+    survey_data: PropTypes.object
 };
 
 const mapStateToProps = state => ({
@@ -115,4 +115,4 @@ const mapStateToProps = state => ({
     users: state.currentuser.user
 });
 
-export default connect(mapStateToProps, {surveyResult, scoreUser})(Questions);
+export default connect(mapStateToProps, {surveyResult})(Questions);

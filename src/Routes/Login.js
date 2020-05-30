@@ -1,5 +1,6 @@
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import React, { Component } from 'react';
+import { container, item } from '../TransitionVariants';
 
 import HeaderBox from '../Components/HeaderBox';
 import M from 'materialize-css';
@@ -21,19 +22,15 @@ class Login extends Component {
             email: res.profileObj.email,
             img: res.profileObj.imageUrl,
             id: res.profileObj.googleId,
-            entrepreneurScore: 0,
-            depressionScore: 0
         };
         this.props.logUser(currentUser);
         M.toast({ html: "Success! Welcome " + this.props.users.firstName }, 4000)
 
-        database.ref(`users/${this.props.users.id}/info`).set({
+        database.ref(`users/${this.props.users.id}/details`).set({
             firstName: currentUser.firstName,
             lastName: currentUser.lastName,
             email: currentUser.email,
             img: currentUser.img,
-            entrepreneurScore: '',
-            depressionScore: ''
         });
     }
 
@@ -50,77 +47,66 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        if (this.props.location.state !== null) {
+        if (this.props.location.state !== null && this.props.location.state !== undefined) {
             if (this.props.location.state.reason !== null) {
-                M.toast({html: "You need to log in to do that", displayLength: 1500});
+                M.toast({ html: "You need to log in to do that", displayLength: 1500 });
             }
         }
     }
 
-
     render() {
-        const container = {
-            hidden: { opacity: 1, scale: 0.5 },
-            visible: {
-                opacity: 1,
-                scale: 1,
-                transition: {
-                    type: "tween",
-                    delay: 0,
-                    when: "beforeChildren",
-                    staggerChildren: 0.1
-                }
-            }
-        };
-
         var logged_in = fakeAuth.isAuthenticated ? (
             <div>
                 <div className="row">
                     <div className="col s6">
-                        <h4 className="subHeader grey-text text-darken-3">
-                            User Details
-                        </h4><hr className="style" />
+                        <motion.div variants={container} initial="hidden" animate="visible">
+                            <motion.h4 className="subHeader grey-text text-darken-3" variants={item}>
+                                User Details
+                            </motion.h4><hr className="style" />
 
-                        <div><img src={this.props.users.img} alt="" className="circle" /></div>
+                            <motion.div variants={item}><img src={this.props.users.img} alt="" className="circle" /></motion.div>
 
-                        <div>
-                            <h4>Name</h4>
-                            {this.props.users.firstName} {this.props.users.lastName}
-                        </div>
+                            <motion.div variants={item}>
+                                <h4>Name</h4>
+                                {this.props.users.firstName} {this.props.users.lastName}
+                            </motion.div>
 
-                        <div>
-                            <h4>Email</h4>
-                            {this.props.users.email}
-                        </div><br />
+                            <motion.div variants={item}>
+                                <h4>Email</h4>
+                                {this.props.users.email}
+                            </motion.div><br />
 
-                        <GoogleLogout
-                            clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
-                            render={renderProps => (
-                                <button
-                                    className="btn-small waves-effect waves-light grey darken-4"
-                                    onClick={renderProps.onClick}
-                                    disabled={renderProps.disabled}
-                                >
-                                    Logout
-                                </button>
-                            )}
-                            buttonText="Logout"
-                            onLogoutSuccess={this.log_out}
-                        />
+                            <motion.div variants={item}>
+                                <GoogleLogout
+                                    clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
+                                    render={renderProps => (
+                                        <button
+                                            className="btn-small waves-effect waves-light"
+                                            onClick={renderProps.onClick}
+                                            disabled={renderProps.disabled}
+                                        >
+                                            Logout
+                                        </button>
+                                    )}
+                                    buttonText="Logout"
+                                    onLogoutSuccess={this.log_out}
+                                />
+                            </motion.div>
+                        </motion.div>
                     </div>
 
                     <div className="col s6">
-                        <h4 className="subHeader grey-text text-darken-3">
-                            Manage Account
-                        </h4><hr className="style" />
+                        <motion.table className="centered" variants={container} initial="hidden" animate="visible">
+                            <h4 className="subHeader grey-text text-darken-3">
+                                Manage Account
+                            </h4><hr className="style" />
 
-                        <table className="centered">
                             <tbody>
-                                <tr>
+                                <motion.tr variants={item}>
                                     <td>Manage details</td>
                                     <td>
                                         <a
-                                            className="btn-small waves-effect waves-light grey darken-4"
+                                            className="btn-small waves-effect waves-light"
                                             href="https://myaccount.google.com/"
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -128,12 +114,12 @@ class Login extends Component {
                                             <i className="tiny material-icons">settings</i>
                                         </a>
                                     </td>
-                                </tr>
-                                <tr>
+                                </motion.tr>
+                                <motion.tr variants={item}>
                                     <td>Security</td>
                                     <td>
                                         <a
-                                            className="btn-small waves-effect waves-light grey darken-4"
+                                            className="btn-small waves-effect waves-light"
                                             href="https://myaccount.google.com/security"
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -141,12 +127,12 @@ class Login extends Component {
                                             <i className="tiny material-icons">https</i>
                                         </a>
                                     </td>
-                                </tr>
-                                <tr>
+                                </motion.tr>
+                                <motion.tr variants={item}>
                                     <td>Personal info</td>
                                     <td>
                                         <a
-                                            className="btn-small waves-effect waves-light grey darken-4"
+                                            className="btn-small waves-effect waves-light"
                                             href="https://myaccount.google.com/personal-info"
                                             target="_blank"
                                             rel="noopener noreferrer"
@@ -154,86 +140,88 @@ class Login extends Component {
                                             <i className="tiny material-icons">info_outline</i>
                                         </a>
                                     </td>
-                                </tr>
-                                <tr>
+                                </motion.tr>
+                                <motion.tr variants={item}>
                                     <td>View past results</td>
                                     <td>
                                         <a
-                                            className="btn-small waves-effect waves-light grey darken-4"
+                                            className="btn-small waves-effect waves-light"
                                             href="#!"
                                         >
                                             <i className="tiny material-icons">equalizer</i>
                                         </a>
                                     </td>
-                                </tr>
-                                <tr>
+                                </motion.tr>
+                                <motion.tr variants={item}>
                                     <td>Remove account</td>
                                     <td>
                                         <a
-                                            className="btn-small waves-effect waves-light grey darken-4"
+                                            className="btn-small waves-effect waves-light"
                                             href="#!"
                                         >
                                             <i className="tiny material-icons">do_not_disturb</i>
                                         </a>
                                     </td>
-                                </tr>
+                                </motion.tr>
                             </tbody>
-                        </table>
+                        </motion.table>
                     </div>
                 </div>
             </div>
         ) :
             <div>
-                <div className="row valign-wrapper">
-                    <div className="col s6">
-                        <p>Welcome to Mass Diplomacy's Mindset Activity Profile, <br /> During this development phase
-                        we kindly ask that you login using a valid Google account for secure authentication.</p>
+                <motion.div variants={item}>
+                    <div className="row valign-wrapper">
+                        <div className="col s6">
+                            <p>Welcome to Mass Diplomacy's Mindset Activity Profile, <br /> During this development phase
+                            we kindly ask that you login using a valid Google account for secure authentication.</p>
 
-                        <i class="fab fa-google fa-lg" />
-                        <hr className="style" />
-                        <GoogleLogin
-                            clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
-                            render={renderProps => (
-                                <button
-                                    className="waves-effect waves-light grey darken-4 btn-small"
-                                    onClick={renderProps.onClick}
-                                    disabled={renderProps.disabled}
-                                >
-                                    login
-                                </button>
-                            )}
-                            onSuccess={this.login}
-                            onFailure={this.responseGoogle}
-                            cookiePolicy={'single_host_origin'}
-                        />
+                            <i class="fab fa-google fa-lg" />
+                            <hr className="style" />
+                            <GoogleLogin
+                                clientId="610400745499-8gku1hcjeo1od6u2a8n4i372ansna6dh.apps.googleusercontent.com"
+                                render={renderProps => (
+                                    <button
+                                        className="waves-effect waves-light btn-small"
+                                        onClick={renderProps.onClick}
+                                        disabled={renderProps.disabled}
+                                    >
+                                        login
+                                    </button>
+                                )}
+                                onSuccess={this.login}
+                                onFailure={this.responseGoogle}
+                                cookiePolicy={'single_host_origin'}
+                            />
 
-                        <p><i>or</i></p>
-                        <p>
-                            Don't have an account?<br />
-                            <a href='https://accounts.google.com/sigNup' target='_blank' rel="noopener noreferrer">Create one here.</a>
-                        </p>
+                            <p><i>or</i></p>
+                            <p>
+                                Don't have an account?<br />
+                                <a href='https://accounts.google.com/sigNup' target='_blank' rel="noopener noreferrer">Create one here.</a>
+                            </p>
+                        </div>
+
+                        <div className="col s6">
+                            <img className="user-details hide-on-small-only" src={locked} alt="" />
+                        </div>
                     </div>
-
-                    <div className="col s6">
-                        <img className="user-details hide-on-small-only" src={locked} alt="" />
-                    </div>
-                </div>
+                </motion.div>
             </div>
 
         return (
             <div>
                 <HeaderBox />
                 <div className="origin">
-                    <div className="center header-position">
+                    <motion.div className="center header-position" variants={container} initial="hidden" animate="visible">
                         <i className="medium material-icons icon-color">account_circle</i>
-                        <header className="pageHeaders white-text">
-                            Account
-                        </header>
-                    </div>
+                        <header className="pageHeaders white-text">Account</header>
+                    </motion.div>
                     <motion.div variants={container} initial="hidden" animate="visible">
-                        <div className="center container floating-container floating-content flow-text z-depth-2">
-                            {logged_in}
-                        </div>
+                        <motion.div variants={item} className="container">
+                            <div className="center floating-container floating-content flow-text z-depth-2">
+                                {logged_in}
+                            </div>
+                        </motion.div>
                     </motion.div>
                 </div>
             </div>

@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import ResultsView from '../Components/ResultsView';
 import { connect } from 'react-redux';
+import { container } from '../TransitionVariants';
+import { motion } from 'framer-motion';
 
 class Results extends Component {
   render() {
@@ -12,15 +14,17 @@ class Results extends Component {
       <div>
         <HeaderBox />
         <div className="origin">
-          <div className="center header-position">
+          <motion.div className="center header-position" variants={container} initial="hidden" animate="visible">
             <i className="medium material-icons icon-color">equalizer</i>
             <header className="pageHeaders white-text">
               Results
             </header>
-          </div>
+          </motion.div>
 
           <div className="container content">
-            {this.props.results.motivation !== undefined ? <ResultsView/> : <Redirect to='/survey'/>}
+            {this.props.results.motivation !== undefined ?
+              <ResultsView result_set={this.props.results}/> : <Redirect to='/survey'/>
+            }
           </div>
         </div>
       </div>
