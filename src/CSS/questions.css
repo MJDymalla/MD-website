@@ -1,0 +1,44 @@
+input {
+    position: relative !important;
+    outline: 0 !important;
+}
+label {
+    position: relative !important;
+}
+.table-striped {
+    font-size: 12px;
+}
+.sv_q tr th {
+    min-width: 20px;
+    width: 8%;
+}
+span::after {
+    background-color: rgba(0, 0, 0, 0.7) !important;
+    border: none !important;
+}
+.checkbox-material::before {
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right:solid 2px rgba(0, 0, 0, 0.7) !important;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.7) !important;
+}
+.sv_progress {
+    color: transparent;
+    height: 10px !important;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+.sv_progress_bar {
+    background: repeating-linear-gradient(
+        45deg,
+        #1d1d20,
+        #1d1d20 10px,
+        #2f2f31 10px,
+        #2f2f31 20px
+    ) !important;
+    height: 10px !important;
+    border-radius: 10px;
+}
+.surveycontainer{
+    padding-top: 40px;
+}

@@ -1,4 +1,5 @@
 import "survey-react/survey.css";
+import '../CSS/questions.css';
 
 import * as Survey from "survey-react";
 
@@ -11,8 +12,8 @@ import PropTypes from 'prop-types';
 import complete from '../Images/complete.png';
 import { connect } from 'react-redux';
 import database from "../firebase/firebase";
-import filterResults from '../filterResults';
-import json from '../JSONQuestions';
+import filterResults from '../Survey/filterResults';
+import json from '../Survey/JSONQuestions';
 import { motion } from 'framer-motion';
 import { surveyResult } from '../Actions/surveyAction';
 

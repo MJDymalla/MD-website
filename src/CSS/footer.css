@@ -1,0 +1,14 @@
+.page-footer {
+    background-color: rgb(0, 0, 0) !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 10px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 7px;
+    height: 80px;
+    margin: 0;
+}
+.footerflow {
+    text-align: center;
+    font-size: 2rem;
+}

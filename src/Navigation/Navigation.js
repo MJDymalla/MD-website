@@ -1,12 +1,13 @@
 import "materialize-css/dist/css/materialize.min.css";
+import '../CSS/navbar.css';
 
 import React, { Component } from 'react';
 
 import M from 'materialize-css';
 import { NavLink } from "react-router-dom";
 import PropTypes from 'prop-types';
+import { auth } from '../App.js';
 import { connect } from 'react-redux';
-import { fakeAuth } from '../App.js';
 
 class Navigation extends Component {
   constructor(props) {
@@ -38,8 +39,8 @@ class Navigation extends Component {
   }
 
   render() {
-    var status = fakeAuth.isAuthenticated ? null : <i className="medium material-icons white-icon">lock</i>
-    var tip = fakeAuth.isAuthenticated ? "Authenticated" : "Un-authenticated"
+    var status = auth.isAuthenticated ? null : <i className="medium material-icons white-icon">lock</i>
+    var tip = auth.isAuthenticated ? "Authenticated" : "Un-authenticated"
 
     return (
       <div>

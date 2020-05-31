@@ -1,5 +1,3 @@
-import '../index.css';
-
 import React, { Component } from "react";
 import { container, item } from '../TransitionVariants';
 
@@ -8,7 +6,6 @@ import HeaderBox from '../Components/HeaderBox';
 import about from '../Images/about.png';
 import { motion } from 'framer-motion';
 
-// ABOUT US PAGE
 class AboutUs extends Component {
     render() {
         return (
@@ -23,7 +20,7 @@ class AboutUs extends Component {
                     </motion.div>
 
                     <motion.div className="container" variants={container} initial="hidden" animate="visible">
-                        <motion.div className="floating-container z-depth-2" variants={item}>
+                        <motion.div className="floating-container z-depth-2 hoverable" variants={item}>
                             <div className="floating-content row">
                                 <div className="flow-text">
                                     <img src={FAQ} className="about_images right hide-on-small-only" alt="" />
@@ -53,9 +50,9 @@ class AboutUs extends Component {
                             </div>
                         </motion.div>
 
-                        <motion.div className="floating-container z-depth-2" variants={item}>
+                        <motion.div className="floating-container z-depth-2 hoverable" variants={item}>
                             <div className="floating-content row">
-                                <div className="flow-text grey-text text-darken-2" >
+                                <div className="flow-text grey-text text-darken-2">
                                     <img src={about} className="about_images left hide-on-small-only" alt="" />
 
                                     <h4>The Entrepreneurial Mindset Activity Profile</h4>
@@ -83,7 +80,7 @@ class AboutUs extends Component {
                             </div>
                         </motion.div>
 
-                        <motion.div className="floating-container z-depth-2" variants={item}>
+                        <motion.div className="floating-container z-depth-2 hoverable" variants={item}>
                             <div className="floating-content row">
                                 <div className="flow-text">
                                     <h4>About the author</h4>

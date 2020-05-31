@@ -1,0 +1,31 @@
+nav {
+    font-family: 'Montserrat', sans-serif;
+    height: 60px !important;
+    position: fixed;
+    z-index: 10;
+    box-shadow: none !important;
+}
+.navbutton {
+    text-align: center;
+}
+.nav-head {
+    font-size: 1.5rem;
+    font-weight: 200 !important;
+    letter-spacing: 10px;
+    padding-left: 1rem;
+    opacity: 0.8;
+}
+.brand-logo {
+    padding-left: 2rem;
+}
+.nav-link {
+    color: grey;
+    outline: 0;
+}
+.nav-link:hover {
+    color: rgb(190, 189, 189);
+    background-color: transparent;
+}
+.nav-link.active{
+    color: #64fcf2;
+}

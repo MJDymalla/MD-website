@@ -22,7 +22,7 @@ import errorPage from './Routes/ErrorPage';
 import store from './store.js';
 
 // AUTHENTICATION CHECK
-export const fakeAuth = {
+export const auth = {
     isAuthenticated: false,
     authenticate(cb) {
         this.isAuthenticated = true
@@ -37,7 +37,7 @@ export const fakeAuth = {
 // PRIVATE ROUTE COMPONENT
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={(props) => (
-        fakeAuth.isAuthenticated === true
+        auth.isAuthenticated === true
             ? <Component {...props} />
             : <Redirect to={{
                 pathname: '/login',

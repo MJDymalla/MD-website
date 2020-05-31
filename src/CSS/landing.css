@@ -1,0 +1,36 @@
+.head {
+    font-size: 1.8rem !important;
+    font-weight: 200 !important;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: white;
+    padding: 20vh 5rem;
+}
+.cursive {
+    font-family: 'Yellowtail', cursive;
+    text-transform: none;
+    padding-left: 2rem;
+}
+
+.landing {
+    background-image: url('../Images/landing.jpg');
+    background-blend-mode: multiply;
+    background-color: #4e4e4e;
+    height: calc(100vh - 80px);
+    width: 100%;
+    z-index: -1;
+    margin-top: -23px;
+    background-size: cover;
+}
+
+.landing-content {
+    margin-top: 8rem;
+    padding: 1rem;
+}
+.info-text {
+    color: rgba(255, 255, 255, 0.719);
+}
+.info-padding {
+    padding-bottom: 2rem;
+}

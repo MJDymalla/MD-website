@@ -32,11 +32,11 @@ class Survey extends Component {
                                     <i>We feel it is important to let you know that your answers will not be
                                 shown to anyone.</i>
                                 </div><hr className="style" />
-                                <p>
+                                <motion.p variants={item}>
                                     <Link to="/questions">
                                         <a className="btn-small waves-effect waves-light" href="#!">BEGIN</a>
                                     </Link>
-                                </p>
+                                </motion.p>
                             </div>
                         </motion.div>
                     </motion.div>

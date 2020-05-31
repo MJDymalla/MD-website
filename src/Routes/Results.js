@@ -1,3 +1,5 @@
+import '../CSS/results.css';
+
 import React, { Component } from 'react';
 
 import HeaderBox from '../Components/HeaderBox';

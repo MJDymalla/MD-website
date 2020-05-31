@@ -5,17 +5,16 @@ import { container, item } from '../TransitionVariants';
 import HeaderBox from '../Components/HeaderBox';
 import M from 'materialize-css';
 import PropTypes from 'prop-types';
+import { auth } from '../App.js'
 import { connect } from 'react-redux';
 import database from "../firebase/firebase";
-import { fakeAuth } from '../App.js'
 import locked from '../Images/login.png';
 import { logUser } from '../Actions/userActions';
 import { motion } from 'framer-motion';
 
 class Login extends Component {
-    // SET AUTHENTICATED TO TRUE - trigger redux action (save users name)
     login = (res) => {
-        fakeAuth.authenticate()
+        auth.authenticate()
         const currentUser = {
             firstName: res.profileObj.givenName,
             lastName: res.profileObj.familyName,
@@ -34,14 +33,12 @@ class Login extends Component {
         });
     }
 
-    // SET AUTHENTICATED TO FALSE - trigger redux action (set user to null)
     log_out = () => {
         M.toast({ html: this.props.users.firstName + " has logged out" }, 4000)
-        fakeAuth.signout()
+        auth.signout()
         this.props.logUser(null);
     }
 
-    // LOG API RESPONSE
     responseGoogle = (response) => {
         console.log(response);
     }
@@ -55,7 +52,7 @@ class Login extends Component {
     }
 
     render() {
-        var logged_in = fakeAuth.isAuthenticated ? (
+        var logged_in = auth.isAuthenticated ? (
             <div>
                 <div className="row">
                     <div className="col s6">

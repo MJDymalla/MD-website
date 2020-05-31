@@ -6,7 +6,7 @@ import M from 'materialize-css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { motion } from 'framer-motion';
-import { responses } from '../Response.js';
+import { responses } from '../Survey/Response.js';
 
 const motivation_max = 60;
 const passion_max = 60;
@@ -132,7 +132,7 @@ class ResultsView extends Component {
     render() {
         return (
             <motion.div variants={container} initial="hidden" animate="visible">
-                <motion.div className="floating-container z-depth-2" variants={item}>
+                <motion.div className="floating-container z-depth-2 hoverable" variants={item}>
                     <div className="floating-content flow-text">
                         <h4 className="grey-text text-darken-2 center">Personality Breakdown</h4>
                         <p className="center grey-text text-darken-1">
@@ -366,7 +366,7 @@ class ResultsView extends Component {
                     </div>
                 </motion.div>
 
-                <motion.div className="floating-container z-depth-2" variants={item}>
+                <motion.div className="floating-container z-depth-2 hoverable" variants={item}>
                     <div className="floating-content center flow-text" >
                         <h4 className="grey-text text-darken-2">Graphical Breakdown</h4>
 
@@ -490,7 +490,7 @@ class ResultsView extends Component {
                     </div>
                 </motion.div>
 
-                <motion.div className="floating-container z-depth-2 center" variants={item}>
+                <motion.div className="floating-container z-depth-2 center hoverable" variants={item}>
                     <div className="floating-content flow-text">
                         <h4 className="grey-text text-darken-2">Overall representation</h4>
                         <p><i>This chart displays your current level of measured entrepreneurial qualities together,

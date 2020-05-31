@@ -1,3 +1,5 @@
+import '../CSS/header_box.css';
+
 import React, {Component} from 'react';
 
 import M from 'materialize-css';
