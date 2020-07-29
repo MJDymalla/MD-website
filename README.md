@@ -16,3 +16,5 @@ To start dev server:
 `npm start`
 runs the app in the development mode, by default on http://localhost:3000
 
+### Authors
+Markus Dymalla & Jack McSweeney
